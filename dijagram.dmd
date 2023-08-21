@@ -1,0 +1,8 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<OSDM_Design class="oracle.dbtools.crest.model.design.Design" name="dijagram" id="BCD30E8E-B90B-98C7-3014-047CCBF1F656" version="3.5">
+<createdBy>Antonio</createdBy>
+<createdTime>2023-05-27 17:26:24 UTC</createdTime>
+<ownerDesignName>dijagram</ownerDesignName>
+<capitalNames>false</capitalNames>
+<designId>BCD30E8E-B90B-98C7-3014-047CCBF1F656</designId>
+</OSDM_Design>
