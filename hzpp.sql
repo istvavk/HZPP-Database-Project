@@ -1,5 +1,5 @@
-DROP TABLE KARTA CASCADE CONSTRAINTS;
 DROP TABLE KARTICA CASCADE CONSTRAINTS;
+DROP TABLE KARTA CASCADE CONSTRAINTS;
 DROP TABLE KUPAC CASCADE CONSTRAINTS;
 DROP TABLE POPUST CASCADE CONSTRAINTS;
 DROP TABLE POSTAJA CASCADE CONSTRAINTS;
@@ -646,105 +646,105 @@ INSERT INTO put (put_id, trajanje, polaziste, odrediste) VALUES (30, INTERVAL '3
 
 
 INSERT INTO karta (karta_id, vrijeme_kupnje, rezervacija_sjedala, razred, vrijeme_polaska, datum_polaska, kupac_kupac_id, put_put_id)
-VALUES (1, TO_TIMESTAMP('08:30:00', 'HH24:MI:SS'), 1, 1, TO_TIMESTAMP('10:00:00', 'HH24:MI:SS'), TO_DATE('2023-07-19', 'YYYY-MM-DD'), 73, 12);
+VALUES (1, TO_TIMESTAMP('08:30:00', 'HH24:MI:SS'), 1, 1, TO_TIMESTAMP('10:00:00', 'HH24:MI:SS'), TO_DATE('2023-07-19', 'YYYY-MM-DD'), 1, 1);
 INSERT INTO karta (karta_id, vrijeme_kupnje, rezervacija_sjedala, razred, vrijeme_polaska, datum_polaska, kupac_kupac_id, put_put_id)
-VALUES (2, TO_TIMESTAMP('09:45:00', 'HH24:MI:SS'), 0, 2, TO_TIMESTAMP('14:30:00', 'HH24:MI:SS'), TO_DATE('2023-07-20', 'YYYY-MM-DD'), 17, 25);
+VALUES (2, TO_TIMESTAMP('09:45:00', 'HH24:MI:SS'), 0, 2, TO_TIMESTAMP('14:30:00', 'HH24:MI:SS'), TO_DATE('2023-07-20', 'YYYY-MM-DD'), 2, 25);
 INSERT INTO karta (karta_id, vrijeme_kupnje, rezervacija_sjedala, razred, vrijeme_polaska, datum_polaska, kupac_kupac_id, put_put_id)
-VALUES (3, TO_TIMESTAMP('11:15:00', 'HH24:MI:SS'), 1, 1, TO_TIMESTAMP('08:45:00', 'HH24:MI:SS'), TO_DATE('2023-07-21', 'YYYY-MM-DD'), 55, 3);
+VALUES (3, TO_TIMESTAMP('11:15:00', 'HH24:MI:SS'), 1, 1, TO_TIMESTAMP('08:45:00', 'HH24:MI:SS'), TO_DATE('2023-07-21', 'YYYY-MM-DD'), 3, 3);
 INSERT INTO karta (karta_id, vrijeme_kupnje, rezervacija_sjedala, razred, vrijeme_polaska, datum_polaska, kupac_kupac_id, put_put_id)
-VALUES (4, TO_TIMESTAMP('14:30:00', 'HH24:MI:SS'), 0, 2, TO_TIMESTAMP('17:15:00', 'HH24:MI:SS'), TO_DATE('2023-07-22', 'YYYY-MM-DD'), 89, 14);
+VALUES (4, TO_TIMESTAMP('14:30:00', 'HH24:MI:SS'), 0, 2, TO_TIMESTAMP('17:15:00', 'HH24:MI:SS'), TO_DATE('2023-07-22', 'YYYY-MM-DD'), 4, 14);
 INSERT INTO karta (karta_id, vrijeme_kupnje, rezervacija_sjedala, razred, vrijeme_polaska, datum_polaska, kupac_kupac_id, put_put_id)
-VALUES (5, TO_TIMESTAMP('12:00:00', 'HH24:MI:SS'), 1, 1, TO_TIMESTAMP('12:30:00', 'HH24:MI:SS'), TO_DATE('2023-07-23', 'YYYY-MM-DD'), 37, 9);
+VALUES (5, TO_TIMESTAMP('12:00:00', 'HH24:MI:SS'), 1, 1, TO_TIMESTAMP('12:30:00', 'HH24:MI:SS'), TO_DATE('2023-07-23', 'YYYY-MM-DD'), 5, 9);
 INSERT INTO karta (karta_id, vrijeme_kupnje, rezervacija_sjedala, razred, vrijeme_polaska, datum_polaska, kupac_kupac_id, put_put_id)
-VALUES (6, TO_TIMESTAMP('08:15:00', 'HH24:MI:SS'), 0, 2, TO_TIMESTAMP('09:45:00', 'HH24:MI:SS'), TO_DATE('2023-07-24', 'YYYY-MM-DD'), 12, 27);
+VALUES (6, TO_TIMESTAMP('08:15:00', 'HH24:MI:SS'), 0, 2, TO_TIMESTAMP('09:45:00', 'HH24:MI:SS'), TO_DATE('2023-07-24', 'YYYY-MM-DD'), 6, 27);
 INSERT INTO karta (karta_id, vrijeme_kupnje, rezervacija_sjedala, razred, vrijeme_polaska, datum_polaska, kupac_kupac_id, put_put_id)
-VALUES (7, TO_TIMESTAMP('15:45:00', 'HH24:MI:SS'), 1, 1, TO_TIMESTAMP('16:00:00', 'HH24:MI:SS'), TO_DATE('2023-07-25', 'YYYY-MM-DD'), 66, 2);
+VALUES (7, TO_TIMESTAMP('15:45:00', 'HH24:MI:SS'), 1, 1, TO_TIMESTAMP('16:00:00', 'HH24:MI:SS'), TO_DATE('2023-07-25', 'YYYY-MM-DD'), 7, 2);
 INSERT INTO karta (karta_id, vrijeme_kupnje, rezervacija_sjedala, razred, vrijeme_polaska, datum_polaska, kupac_kupac_id, put_put_id)
-VALUES (8, TO_TIMESTAMP('11:00:00', 'HH24:MI:SS'), 0, 2, TO_TIMESTAMP('11:30:00', 'HH24:MI:SS'), TO_DATE('2023-07-26', 'YYYY-MM-DD'), 81, 19);
+VALUES (8, TO_TIMESTAMP('11:00:00', 'HH24:MI:SS'), 0, 2, TO_TIMESTAMP('11:30:00', 'HH24:MI:SS'), TO_DATE('2023-07-26', 'YYYY-MM-DD'), 8, 19);
 INSERT INTO karta (karta_id, vrijeme_kupnje, rezervacija_sjedala, razred, vrijeme_polaska, datum_polaska, kupac_kupac_id, put_put_id)
-VALUES (9, TO_TIMESTAMP('13:30:00', 'HH24:MI:SS'), 1, 1, TO_TIMESTAMP('13:15:00', 'HH24:MI:SS'), TO_DATE('2023-07-27', 'YYYY-MM-DD'), 94, 30);
+VALUES (9, TO_TIMESTAMP('13:30:00', 'HH24:MI:SS'), 1, 1, TO_TIMESTAMP('13:15:00', 'HH24:MI:SS'), TO_DATE('2023-07-27', 'YYYY-MM-DD'), 9, 30);
 INSERT INTO karta (karta_id, vrijeme_kupnje, rezervacija_sjedala, razred, vrijeme_polaska, datum_polaska, kupac_kupac_id, put_put_id)
-VALUES (10, TO_TIMESTAMP('16:45:00', 'HH24:MI:SS'), 0, 2, TO_TIMESTAMP('18:30:00', 'HH24:MI:SS'), TO_DATE('2023-07-28', 'YYYY-MM-DD'), 63, 11);
+VALUES (10, TO_TIMESTAMP('16:45:00', 'HH24:MI:SS'), 0, 2, TO_TIMESTAMP('18:30:00', 'HH24:MI:SS'), TO_DATE('2023-07-28', 'YYYY-MM-DD'), 10, 11);
 INSERT INTO karta (karta_id, vrijeme_kupnje, rezervacija_sjedala, razred, vrijeme_polaska, datum_polaska, kupac_kupac_id, put_put_id)
-VALUES (11, TO_TIMESTAMP('09:30:00', 'HH24:MI:SS'), 1, 1, TO_TIMESTAMP('10:45:00', 'HH24:MI:SS'), TO_DATE('2023-07-29', 'YYYY-MM-DD'), 42, 22);
+VALUES (11, TO_TIMESTAMP('09:30:00', 'HH24:MI:SS'), 1, 1, TO_TIMESTAMP('10:45:00', 'HH24:MI:SS'), TO_DATE('2023-07-29', 'YYYY-MM-DD'), 12, 22);
 INSERT INTO karta (karta_id, vrijeme_kupnje, rezervacija_sjedala, razred, vrijeme_polaska, datum_polaska, kupac_kupac_id, put_put_id)
-VALUES (12, TO_TIMESTAMP('14:00:00', 'HH24:MI:SS'), 0, 2, TO_TIMESTAMP('15:00:00', 'HH24:MI:SS'), TO_DATE('2023-07-30', 'YYYY-MM-DD'), 27, 6);
+VALUES (12, TO_TIMESTAMP('14:00:00', 'HH24:MI:SS'), 0, 2, TO_TIMESTAMP('15:00:00', 'HH24:MI:SS'), TO_DATE('2023-07-30', 'YYYY-MM-DD'), 13, 1);
 INSERT INTO karta (karta_id, vrijeme_kupnje, rezervacija_sjedala, razred, vrijeme_polaska, datum_polaska, kupac_kupac_id, put_put_id)
-VALUES (13, TO_TIMESTAMP('11:45:00', 'HH24:MI:SS'), 1, 1, TO_TIMESTAMP('12:15:00', 'HH24:MI:SS'), TO_DATE('2023-07-31', 'YYYY-MM-DD'), 59, 16);
+VALUES (13, TO_TIMESTAMP('11:45:00', 'HH24:MI:SS'), 1, 1, TO_TIMESTAMP('12:15:00', 'HH24:MI:SS'), TO_DATE('2023-07-31', 'YYYY-MM-DD'), 14, 16);
 INSERT INTO karta (karta_id, vrijeme_kupnje, rezervacija_sjedala, razred, vrijeme_polaska, datum_polaska, kupac_kupac_id, put_put_id)
-VALUES (14, TO_TIMESTAMP('09:00:00', 'HH24:MI:SS'), 0, 2, TO_TIMESTAMP('09:30:00', 'HH24:MI:SS'), TO_DATE('2023-08-01', 'YYYY-MM-DD'), 75, 29);
+VALUES (14, TO_TIMESTAMP('09:00:00', 'HH24:MI:SS'), 0, 2, TO_TIMESTAMP('09:30:00', 'HH24:MI:SS'), TO_DATE('2023-08-01', 'YYYY-MM-DD'), 15, 29);
 INSERT INTO karta (karta_id, vrijeme_kupnje, rezervacija_sjedala, razred, vrijeme_polaska, datum_polaska, kupac_kupac_id, put_put_id)
-VALUES (15, TO_TIMESTAMP('12:45:00', 'HH24:MI:SS'), 1, 1, TO_TIMESTAMP('10:45:00', 'HH24:MI:SS'), TO_DATE('2023-08-02', 'YYYY-MM-DD'), 19, 8);
+VALUES (15, TO_TIMESTAMP('12:45:00', 'HH24:MI:SS'), 1, 1, TO_TIMESTAMP('10:45:00', 'HH24:MI:SS'), TO_DATE('2023-08-02', 'YYYY-MM-DD'), 16, 8);
 INSERT INTO karta (karta_id, vrijeme_kupnje, rezervacija_sjedala, razred, vrijeme_polaska, datum_polaska, kupac_kupac_id, put_put_id)
-VALUES (16, TO_TIMESTAMP('15:00:00', 'HH24:MI:SS'), 0, 2, TO_TIMESTAMP('14:30:00', 'HH24:MI:SS'), TO_DATE('2023-08-03', 'YYYY-MM-DD'), 91, 21);
+VALUES (16, TO_TIMESTAMP('15:00:00', 'HH24:MI:SS'), 0, 2, TO_TIMESTAMP('14:30:00', 'HH24:MI:SS'), TO_DATE('2023-08-03', 'YYYY-MM-DD'), 17, 21);
 INSERT INTO karta (karta_id, vrijeme_kupnje, rezervacija_sjedala, razred, vrijeme_polaska, datum_polaska, kupac_kupac_id, put_put_id)
-VALUES (17, TO_TIMESTAMP('10:30:00', 'HH24:MI:SS'), 1, 1, TO_TIMESTAMP('08:45:00', 'HH24:MI:SS'), TO_DATE('2023-08-04', 'YYYY-MM-DD'), 30, 4);
+VALUES (17, TO_TIMESTAMP('10:30:00', 'HH24:MI:SS'), 1, 1, TO_TIMESTAMP('08:45:00', 'HH24:MI:SS'), TO_DATE('2023-08-04', 'YYYY-MM-DD'), 18, 4);
 INSERT INTO karta (karta_id, vrijeme_kupnje, rezervacija_sjedala, razred, vrijeme_polaska, datum_polaska, kupac_kupac_id, put_put_id)
-VALUES (18, TO_TIMESTAMP('13:15:00', 'HH24:MI:SS'), 0, 2, TO_TIMESTAMP('17:15:00', 'HH24:MI:SS'), TO_DATE('2023-08-05', 'YYYY-MM-DD'), 44, 17);
+VALUES (18, TO_TIMESTAMP('13:15:00', 'HH24:MI:SS'), 0, 2, TO_TIMESTAMP('17:15:00', 'HH24:MI:SS'), TO_DATE('2023-08-05', 'YYYY-MM-DD'), 19, 17);
 INSERT INTO karta (karta_id, vrijeme_kupnje, rezervacija_sjedala, razred, vrijeme_polaska, datum_polaska, kupac_kupac_id, put_put_id)
-VALUES (19, TO_TIMESTAMP('12:30:00', 'HH24:MI:SS'), 1, 1, TO_TIMESTAMP('12:30:00', 'HH24:MI:SS'), TO_DATE('2023-08-06', 'YYYY-MM-DD'), 67, 28);
+VALUES (19, TO_TIMESTAMP('12:30:00', 'HH24:MI:SS'), 1, 1, TO_TIMESTAMP('12:30:00', 'HH24:MI:SS'), TO_DATE('2023-08-06', 'YYYY-MM-DD'), 20, 28);
 INSERT INTO karta (karta_id, vrijeme_kupnje, rezervacija_sjedala, razred, vrijeme_polaska, datum_polaska, kupac_kupac_id, put_put_id)
-VALUES (20, TO_TIMESTAMP('09:45:00', 'HH24:MI:SS'), 0, 2, TO_TIMESTAMP('09:45:00', 'HH24:MI:SS'), TO_DATE('2023-08-07', 'YYYY-MM-DD'), 92, 7);
+VALUES (20, TO_TIMESTAMP('09:45:00', 'HH24:MI:SS'), 0, 2, TO_TIMESTAMP('09:45:00', 'HH24:MI:SS'), TO_DATE('2023-08-07', 'YYYY-MM-DD'), 21, 7);
 INSERT INTO karta (karta_id, vrijeme_kupnje, rezervacija_sjedala, razred, vrijeme_polaska, datum_polaska, kupac_kupac_id, put_put_id)
-VALUES (21, TO_TIMESTAMP('16:00:00', 'HH24:MI:SS'), 1, 1, TO_TIMESTAMP('16:00:00', 'HH24:MI:SS'), TO_DATE('2023-08-08', 'YYYY-MM-DD'), 52, 18);
+VALUES (21, TO_TIMESTAMP('16:00:00', 'HH24:MI:SS'), 1, 1, TO_TIMESTAMP('16:00:00', 'HH24:MI:SS'), TO_DATE('2023-08-08', 'YYYY-MM-DD'), 22, 18);
 INSERT INTO karta (karta_id, vrijeme_kupnje, rezervacija_sjedala, razred, vrijeme_polaska, datum_polaska, kupac_kupac_id, put_put_id)
-VALUES (22, TO_TIMESTAMP('11:30:00', 'HH24:MI:SS'), 0, 1, TO_TIMESTAMP('11:30:00', 'HH24:MI:SS'), TO_DATE('2023-08-09', 'YYYY-MM-DD'), 9, 1);  
+VALUES (22, TO_TIMESTAMP('11:30:00', 'HH24:MI:SS'), 0, 1, TO_TIMESTAMP('11:30:00', 'HH24:MI:SS'), TO_DATE('2023-08-09', 'YYYY-MM-DD'), 23, 1);  
 INSERT INTO karta (karta_id, vrijeme_kupnje, rezervacija_sjedala, razred, vrijeme_polaska, datum_polaska, kupac_kupac_id, put_put_id)
-VALUES (23, TO_TIMESTAMP('13:15:00', 'HH24:MI:SS'), 1, 1, TO_TIMESTAMP('13:15:00', 'HH24:MI:SS'), TO_DATE('2023-08-10', 'YYYY-MM-DD'), 21, 13);
+VALUES (23, TO_TIMESTAMP('13:15:00', 'HH24:MI:SS'), 1, 1, TO_TIMESTAMP('13:15:00', 'HH24:MI:SS'), TO_DATE('2023-08-10', 'YYYY-MM-DD'), 24, 13);
 INSERT INTO karta (karta_id, vrijeme_kupnje, rezervacija_sjedala, razred, vrijeme_polaska, datum_polaska, kupac_kupac_id, put_put_id)
-VALUES (24, TO_TIMESTAMP('18:30:00', 'HH24:MI:SS'), 0, 2, TO_TIMESTAMP('18:30:00', 'HH24:MI:SS'), TO_DATE('2023-08-11', 'YYYY-MM-DD'), 45, 26);
+VALUES (24, TO_TIMESTAMP('18:30:00', 'HH24:MI:SS'), 0, 2, TO_TIMESTAMP('18:30:00', 'HH24:MI:SS'), TO_DATE('2023-08-11', 'YYYY-MM-DD'), 25, 26);
 INSERT INTO karta (karta_id, vrijeme_kupnje, rezervacija_sjedala, razred, vrijeme_polaska, datum_polaska, kupac_kupac_id, put_put_id)
-VALUES (25, TO_TIMESTAMP('10:45:00', 'HH24:MI:SS'), 1, 1, TO_TIMESTAMP('10:45:00', 'HH24:MI:SS'), TO_DATE('2023-08-12', 'YYYY-MM-DD'), 74, 6);
+VALUES (25, TO_TIMESTAMP('10:45:00', 'HH24:MI:SS'), 1, 1, TO_TIMESTAMP('10:45:00', 'HH24:MI:SS'), TO_DATE('2023-08-12', 'YYYY-MM-DD'), 26, 6);
 INSERT INTO karta (karta_id, vrijeme_kupnje, rezervacija_sjedala, razred, vrijeme_polaska, datum_polaska, kupac_kupac_id, put_put_id)
-VALUES (26, TO_TIMESTAMP('15:00:00', 'HH24:MI:SS'), 0, 2, TO_TIMESTAMP('15:00:00', 'HH24:MI:SS'), TO_DATE('2023-08-13', 'YYYY-MM-DD'), 36, 19);
+VALUES (26, TO_TIMESTAMP('15:00:00', 'HH24:MI:SS'), 0, 2, TO_TIMESTAMP('15:00:00', 'HH24:MI:SS'), TO_DATE('2023-08-13', 'YYYY-MM-DD'), 27, 19);
 INSERT INTO karta (karta_id, vrijeme_kupnje, rezervacija_sjedala, razred, vrijeme_polaska, datum_polaska, kupac_kupac_id, put_put_id)
-VALUES (27, TO_TIMESTAMP('08:45:00', 'HH24:MI:SS'), 1, 1, TO_TIMESTAMP('08:45:00', 'HH24:MI:SS'), TO_DATE('2023-08-14', 'YYYY-MM-DD'), 58, 10);
+VALUES (27, TO_TIMESTAMP('08:45:00', 'HH24:MI:SS'), 1, 1, TO_TIMESTAMP('08:45:00', 'HH24:MI:SS'), TO_DATE('2023-08-14', 'YYYY-MM-DD'), 28, 10);
 INSERT INTO karta (karta_id, vrijeme_kupnje, rezervacija_sjedala, razred, vrijeme_polaska, datum_polaska, kupac_kupac_id, put_put_id)
-VALUES (28, TO_TIMESTAMP('17:15:00', 'HH24:MI:SS'), 0, 2, TO_TIMESTAMP('17:15:00', 'HH24:MI:SS'), TO_DATE('2023-08-15', 'YYYY-MM-DD'), 83, 23);
+VALUES (28, TO_TIMESTAMP('17:15:00', 'HH24:MI:SS'), 0, 2, TO_TIMESTAMP('17:15:00', 'HH24:MI:SS'), TO_DATE('2023-08-15', 'YYYY-MM-DD'), 29, 23);
 INSERT INTO karta (karta_id, vrijeme_kupnje, rezervacija_sjedala, razred, vrijeme_polaska, datum_polaska, kupac_kupac_id, put_put_id)
-VALUES (29, TO_TIMESTAMP('12:30:00', 'HH24:MI:SS'), 1, 1, TO_TIMESTAMP('12:30:00', 'HH24:MI:SS'), TO_DATE('2023-08-16', 'YYYY-MM-DD'), 13, 4);
+VALUES (29, TO_TIMESTAMP('12:30:00', 'HH24:MI:SS'), 1, 1, TO_TIMESTAMP('12:30:00', 'HH24:MI:SS'), TO_DATE('2023-08-16', 'YYYY-MM-DD'), 30, 4);
 INSERT INTO karta (karta_id, vrijeme_kupnje, rezervacija_sjedala, razred, vrijeme_polaska, datum_polaska, kupac_kupac_id, put_put_id)
-VALUES (30, TO_TIMESTAMP('09:45:00', 'HH24:MI:SS'), 0, 2, TO_TIMESTAMP('09:45:00', 'HH24:MI:SS'), TO_DATE('2023-08-17', 'YYYY-MM-DD'), 26, 16);
+VALUES (30, TO_TIMESTAMP('09:45:00', 'HH24:MI:SS'), 0, 2, TO_TIMESTAMP('09:45:00', 'HH24:MI:SS'), TO_DATE('2023-08-17', 'YYYY-MM-DD'), 31, 16);
 INSERT INTO karta (karta_id, vrijeme_kupnje, rezervacija_sjedala, razred, vrijeme_polaska, datum_polaska, kupac_kupac_id, put_put_id)
-VALUES (31, TO_TIMESTAMP('16:00:00', 'HH24:MI:SS'), 1, 1, TO_TIMESTAMP('16:00:00', 'HH24:MI:SS'), TO_DATE('2023-08-18', 'YYYY-MM-DD'), 77, 29);
+VALUES (31, TO_TIMESTAMP('16:00:00', 'HH24:MI:SS'), 1, 1, TO_TIMESTAMP('16:00:00', 'HH24:MI:SS'), TO_DATE('2023-08-18', 'YYYY-MM-DD'), 32, 29);
 INSERT INTO karta (karta_id, vrijeme_kupnje, rezervacija_sjedala, razred, vrijeme_polaska, datum_polaska, kupac_kupac_id, put_put_id)
-VALUES (32, TO_TIMESTAMP('11:30:00', 'HH24:MI:SS'), 0, 2, TO_TIMESTAMP('11:30:00', 'HH24:MI:SS'), TO_DATE('2023-08-19', 'YYYY-MM-DD'), 41, 9);
+VALUES (32, TO_TIMESTAMP('11:30:00', 'HH24:MI:SS'), 0, 2, TO_TIMESTAMP('11:30:00', 'HH24:MI:SS'), TO_DATE('2023-08-19', 'YYYY-MM-DD'), 33, 9);
 INSERT INTO karta (karta_id, vrijeme_kupnje, rezervacija_sjedala, razred, vrijeme_polaska, datum_polaska, kupac_kupac_id, put_put_id)
-VALUES (33, TO_TIMESTAMP('13:15:00', 'HH24:MI:SS'), 1, 1, TO_TIMESTAMP('13:15:00', 'HH24:MI:SS'), TO_DATE('2023-08-20', 'YYYY-MM-DD'), 64, 22);
+VALUES (33, TO_TIMESTAMP('13:15:00', 'HH24:MI:SS'), 1, 1, TO_TIMESTAMP('13:15:00', 'HH24:MI:SS'), TO_DATE('2023-08-20', 'YYYY-MM-DD'), 34, 22);
 INSERT INTO karta (karta_id, vrijeme_kupnje, rezervacija_sjedala, razred, vrijeme_polaska, datum_polaska, kupac_kupac_id, put_put_id)
-VALUES (34, TO_TIMESTAMP('18:30:00', 'HH24:MI:SS'), 0, 2, TO_TIMESTAMP('18:30:00', 'HH24:MI:SS'), TO_DATE('2023-08-21', 'YYYY-MM-DD'), 99, 5);
+VALUES (34, TO_TIMESTAMP('18:30:00', 'HH24:MI:SS'), 0, 2, TO_TIMESTAMP('18:30:00', 'HH24:MI:SS'), TO_DATE('2023-08-21', 'YYYY-MM-DD'), 35, 5);
 INSERT INTO karta (karta_id, vrijeme_kupnje, rezervacija_sjedala, razred, vrijeme_polaska, datum_polaska, kupac_kupac_id, put_put_id)
-VALUES (35, TO_TIMESTAMP('10:45:00', 'HH24:MI:SS'), 1, 1, TO_TIMESTAMP('10:45:00', 'HH24:MI:SS'), TO_DATE('2023-08-22', 'YYYY-MM-DD'), 32, 17);
+VALUES (35, TO_TIMESTAMP('10:45:00', 'HH24:MI:SS'), 1, 1, TO_TIMESTAMP('10:45:00', 'HH24:MI:SS'), TO_DATE('2023-08-22', 'YYYY-MM-DD'), 36, 17);
 INSERT INTO karta (karta_id, vrijeme_kupnje, rezervacija_sjedala, razred, vrijeme_polaska, datum_polaska, kupac_kupac_id, put_put_id)
-VALUES (36, TO_TIMESTAMP('15:00:00', 'HH24:MI:SS'), 0, 2, TO_TIMESTAMP('15:00:00', 'HH24:MI:SS'), TO_DATE('2023-08-23', 'YYYY-MM-DD'), 7, 30);  
+VALUES (36, TO_TIMESTAMP('15:00:00', 'HH24:MI:SS'), 0, 2, TO_TIMESTAMP('15:00:00', 'HH24:MI:SS'), TO_DATE('2023-08-23', 'YYYY-MM-DD'), 37, 30); 
 INSERT INTO karta (karta_id, vrijeme_kupnje, rezervacija_sjedala, razred, vrijeme_polaska, datum_polaska, kupac_kupac_id, put_put_id)
-VALUES (37, TO_TIMESTAMP('08:45:00', 'HH24:MI:SS'), 1, 1, TO_TIMESTAMP('08:45:00', 'HH24:MI:SS'), TO_DATE('2023-08-24', 'YYYY-MM-DD'), 82, 11);
+VALUES (37, TO_TIMESTAMP('08:45:00', 'HH24:MI:SS'), 1, 1, TO_TIMESTAMP('08:45:00', 'HH24:MI:SS'), TO_DATE('2023-08-24', 'YYYY-MM-DD'), 38, 11);
 INSERT INTO karta (karta_id, vrijeme_kupnje, rezervacija_sjedala, razred, vrijeme_polaska, datum_polaska, kupac_kupac_id, put_put_id)
-VALUES (38, TO_TIMESTAMP('17:15:00', 'HH24:MI:SS'), 0, 1, TO_TIMESTAMP('17:15:00', 'HH24:MI:SS'), TO_DATE('2023-08-25', 'YYYY-MM-DD'), 20, 24);  
+VALUES (38, TO_TIMESTAMP('17:15:00', 'HH24:MI:SS'), 0, 1, TO_TIMESTAMP('17:15:00', 'HH24:MI:SS'), TO_DATE('2023-08-25', 'YYYY-MM-DD'), 39, 24);  
 INSERT INTO karta (karta_id, vrijeme_kupnje, rezervacija_sjedala, razred, vrijeme_polaska, datum_polaska, kupac_kupac_id, put_put_id)
-VALUES (39, TO_TIMESTAMP('12:30:00', 'HH24:MI:SS'), 1, 1, TO_TIMESTAMP('12:30:00', 'HH24:MI:SS'), TO_DATE('2023-08-26', 'YYYY-MM-DD'), 53, 6);
+VALUES (39, TO_TIMESTAMP('12:30:00', 'HH24:MI:SS'), 1, 1, TO_TIMESTAMP('12:30:00', 'HH24:MI:SS'), TO_DATE('2023-08-26', 'YYYY-MM-DD'), 40, 6);
 INSERT INTO karta (karta_id, vrijeme_kupnje, rezervacija_sjedala, razred, vrijeme_polaska, datum_polaska, kupac_kupac_id, put_put_id)
-VALUES (40, TO_TIMESTAMP('09:45:00', 'HH24:MI:SS'), 0, 2, TO_TIMESTAMP('09:45:00', 'HH24:MI:SS'), TO_DATE('2023-08-27', 'YYYY-MM-DD'), 78, 19);
+VALUES (40, TO_TIMESTAMP('09:45:00', 'HH24:MI:SS'), 0, 2, TO_TIMESTAMP('09:45:00', 'HH24:MI:SS'), TO_DATE('2023-08-27', 'YYYY-MM-DD'), 41, 19);
 INSERT INTO karta (karta_id, vrijeme_kupnje, rezervacija_sjedala, razred, vrijeme_polaska, datum_polaska, kupac_kupac_id, put_put_id)
-VALUES (41, TO_TIMESTAMP('16:00:00', 'HH24:MI:SS'), 1, 1, TO_TIMESTAMP('16:00:00', 'HH24:MI:SS'), TO_DATE('2023-08-28', 'YYYY-MM-DD'), 24, 2);
+VALUES (41, TO_TIMESTAMP('16:00:00', 'HH24:MI:SS'), 1, 1, TO_TIMESTAMP('16:00:00', 'HH24:MI:SS'), TO_DATE('2023-08-28', 'YYYY-MM-DD'), 42, 2);
 INSERT INTO karta (karta_id, vrijeme_kupnje, rezervacija_sjedala, razred, vrijeme_polaska, datum_polaska, kupac_kupac_id, put_put_id)
-VALUES (42, TO_TIMESTAMP('11:30:00', 'HH24:MI:SS'), 0, 2, TO_TIMESTAMP('11:30:00', 'HH24:MI:SS'), TO_DATE('2023-08-29', 'YYYY-MM-DD'), 49, 14);
+VALUES (42, TO_TIMESTAMP('11:30:00', 'HH24:MI:SS'), 0, 2, TO_TIMESTAMP('11:30:00', 'HH24:MI:SS'), TO_DATE('2023-08-29', 'YYYY-MM-DD'), 43, 14);
 INSERT INTO karta (karta_id, vrijeme_kupnje, rezervacija_sjedala, razred, vrijeme_polaska, datum_polaska, kupac_kupac_id, put_put_id)
-VALUES (43, TO_TIMESTAMP('13:15:00', 'HH24:MI:SS'), 1, 1, TO_TIMESTAMP('13:15:00', 'HH24:MI:SS'), TO_DATE('2023-08-30', 'YYYY-MM-DD'), 71, 26);
+VALUES (43, TO_TIMESTAMP('13:15:00', 'HH24:MI:SS'), 1, 1, TO_TIMESTAMP('13:15:00', 'HH24:MI:SS'), TO_DATE('2023-08-30', 'YYYY-MM-DD'), 44, 27);
 INSERT INTO karta (karta_id, vrijeme_kupnje, rezervacija_sjedala, razred, vrijeme_polaska, datum_polaska, kupac_kupac_id, put_put_id)
-VALUES (44, TO_TIMESTAMP('18:30:00', 'HH24:MI:SS'), 0, 2, TO_TIMESTAMP('18:30:00', 'HH24:MI:SS'), TO_DATE('2023-08-31', 'YYYY-MM-DD'), 97, 7);
+VALUES (44, TO_TIMESTAMP('18:30:00', 'HH24:MI:SS'), 0, 2, TO_TIMESTAMP('18:30:00', 'HH24:MI:SS'), TO_DATE('2023-08-31', 'YYYY-MM-DD'), 45, 7);
 INSERT INTO karta (karta_id, vrijeme_kupnje, rezervacija_sjedala, razred, vrijeme_polaska, datum_polaska, kupac_kupac_id, put_put_id)
-VALUES (45, TO_TIMESTAMP('10:45:00', 'HH24:MI:SS'), 1, 1, TO_TIMESTAMP('10:45:00', 'HH24:MI:SS'), TO_DATE('2023-09-01', 'YYYY-MM-DD'), 31, 20);
+VALUES (45, TO_TIMESTAMP('10:45:00', 'HH24:MI:SS'), 1, 1, TO_TIMESTAMP('10:45:00', 'HH24:MI:SS'), TO_DATE('2023-09-01', 'YYYY-MM-DD'), 46, 20);
 INSERT INTO karta (karta_id, vrijeme_kupnje, rezervacija_sjedala, razred, vrijeme_polaska, datum_polaska, kupac_kupac_id, put_put_id)
-VALUES (46, TO_TIMESTAMP('15:00:00', 'HH24:MI:SS'), 0, 2, TO_TIMESTAMP('15:00:00', 'HH24:MI:SS'), TO_DATE('2023-09-02', 'YYYY-MM-DD'), 55, 3);
+VALUES (46, TO_TIMESTAMP('15:00:00', 'HH24:MI:SS'), 0, 2, TO_TIMESTAMP('15:00:00', 'HH24:MI:SS'), TO_DATE('2023-09-02', 'YYYY-MM-DD'), 47, 3);
 INSERT INTO karta (karta_id, vrijeme_kupnje, rezervacija_sjedala, razred, vrijeme_polaska, datum_polaska, kupac_kupac_id, put_put_id)
-VALUES (47, TO_TIMESTAMP('08:45:00', 'HH24:MI:SS'), 1, 1, TO_TIMESTAMP('08:45:00', 'HH24:MI:SS'), TO_DATE('2023-09-03', 'YYYY-MM-DD'), 79, 15);
+VALUES (47, TO_TIMESTAMP('08:45:00', 'HH24:MI:SS'), 1, 1, TO_TIMESTAMP('08:45:00', 'HH24:MI:SS'), TO_DATE('2023-09-03', 'YYYY-MM-DD'), 48, 15);
 INSERT INTO karta (karta_id, vrijeme_kupnje, rezervacija_sjedala, razred, vrijeme_polaska, datum_polaska, kupac_kupac_id, put_put_id)
-VALUES (48, TO_TIMESTAMP('17:15:00', 'HH24:MI:SS'), 0, 2, TO_TIMESTAMP('17:15:00', 'HH24:MI:SS'), TO_DATE('2023-09-04', 'YYYY-MM-DD'), 35, 28);
+VALUES (48, TO_TIMESTAMP('17:15:00', 'HH24:MI:SS'), 0, 2, TO_TIMESTAMP('17:15:00', 'HH24:MI:SS'), TO_DATE('2023-09-04', 'YYYY-MM-DD'), 49, 28);
 INSERT INTO karta (karta_id, vrijeme_kupnje, rezervacija_sjedala, razred, vrijeme_polaska, datum_polaska, kupac_kupac_id, put_put_id)
-VALUES (49, TO_TIMESTAMP('12:30:00', 'HH24:MI:SS'), 1, 1, TO_TIMESTAMP('12:30:00', 'HH24:MI:SS'), TO_DATE('2023-09-05', 'YYYY-MM-DD'), 59, 10);
+VALUES (49, TO_TIMESTAMP('12:30:00', 'HH24:MI:SS'), 1, 1, TO_TIMESTAMP('12:30:00', 'HH24:MI:SS'), TO_DATE('2023-09-05', 'YYYY-MM-DD'), 50, 10);
 INSERT INTO karta (karta_id, vrijeme_kupnje, rezervacija_sjedala, razred, vrijeme_polaska, datum_polaska, kupac_kupac_id, put_put_id)
-VALUES (50, TO_TIMESTAMP('09:45:00', 'HH24:MI:SS'), 0, 2, TO_TIMESTAMP('09:45:00', 'HH24:MI:SS'), TO_DATE('2023-09-06', 'YYYY-MM-DD'), 84, 22);
+VALUES (50, TO_TIMESTAMP('09:45:00', 'HH24:MI:SS'), 0, 2, TO_TIMESTAMP('09:45:00', 'HH24:MI:SS'), TO_DATE('2023-09-06', 'YYYY-MM-DD'), 51, 1);
 
 
 INSERT INTO zaposlenik_vlak (zaposlenik_zaposlenik_id, vlak_vlak_id) VALUES (40, 8);
@@ -765,13 +765,13 @@ INSERT INTO put_vlak (vlak_vlak_id, put_put_id) VALUES (36, 14);
 INSERT INTO put_vlak (vlak_vlak_id, put_put_id) VALUES (66, 8);
 
 
-commit;
+COMMIT;
 
 
 -- jednostavni
 
 SELECT * FROM put 
-WHERE POLAZISTE = 'Zagreb' AND ODREDISTE = 'Split';
+WHERE polaziste = 'Zagreb' AND odrediste = 'Split';
 
 
 SELECT * FROM put;
@@ -796,7 +796,19 @@ SELECT *
 FROM karta 
 WHERE razred = 1;
 
---nad vise tablica
+
+UPDATE zaposlenik
+SET placa = 20000   --postavlja zaposleniku s id = 1 placu na 20000
+WHERE zaposlenik_id = 1;
+
+
+SELECT placa
+FROM zaposlenik     --test query za prethodni update place
+WHERE zaposlenik_id = 1;
+
+
+--upiti nad vise tablica
+
 
 -- uzimamo ime, prezime zaposlenika i na kojem vlaku se nalaze, id vlaka i tip
 SELECT ime, prezime, vlak_id, tip
@@ -804,10 +816,35 @@ FROM zaposlenik
 LEFT JOIN zaposlenik_vlak ON zaposlenik_id = zaposlenik_id
 LEFT JOIN vlak ON vlak_id = vlak_id;
 
+
+--dohvacamo id kartice, kategoriju u koju spada kupac i iznos popusta koji svaki od kupaca ima
+SELECT kartica_id, kategorija, iznos
+FROM kartica
+INNER JOIN popust ON kartica.kartica_id = popust.kartica_kartica_id;
+
+
 --uzimamo ime i prezime zaposlenika i na kojoj postaji se nalazi
 SELECT ime, prezime, naziv_mjesta
 FROM zaposlenik 
-INNER JOIN postaja ON zaposlenik_id = postaja_id;
+INNER JOIN postaja ON zaposlenik.zaposlenik_id = postaja.postaja_id;
+
+
+--dohvacamo id kupca, karte, vrijeme polaska i datum polaska za svakog kupca
+SELECT kupac_id, karta_id, vrijeme_kupnje, datum_polaska
+FROM karta 
+INNER JOIN kupac ON karta.karta_id = kupac.kupac_id;
+
+
+--dohvacamo ime i prezime kupca i id kartice koju ima
+SELECT ime, prezime, kartica_id 
+FROM kupac 
+LEFT JOIN kartica ON kupac.kupac_id = kartica.kartica_id;
+
+
+--dohvacamo id karte i id puta na odredenim relacijama
+SELECT karta_id, put_id, polaziste, odrediste
+FROM karta
+INNER JOIN put ON karta.karta_id = put.put_id;
 
 
 --uzimamo puteve s pridruzenim vlakovima na putovanjima
@@ -827,14 +864,15 @@ LEFT JOIN put ON put_id = put_id;
 --dohvacamo popuste s pridruzenim karticama i podacima kupca(ime, prezime)
 SELECT iznos, kartica_id, kategorija, ime, prezime
 FROM popust 
-LEFT JOIN kartica ON kartica_kartica_id = kartica_id
-LEFT JOIN kupac ON kupac_kupac_id = kupac_id;
+LEFT JOIN kartica ON popust.kartica_kartica_id = kartica.kartica_id
+LEFT JOIN kupac ON kartica.kupac_kupac_id = kupac.kupac_id;
+
 
 --isti kao prethodni query ali je profiltriran da gleda samo di je iznos popusta 0.5
 SELECT iznos, kartica_id, kategorija, ime, prezime
 FROM popust 
-LEFT JOIN kartica ON kartica_kartica_id = kartica_id
-LEFT JOIN kupac ON kupac_kupac_id = kupac_id
+LEFT JOIN kartica ON popust.kartica_kartica_id = kartica.kartica_id
+LEFT JOIN kupac ON kartica.kupac_kupac_id = kupac.kupac_id
 WHERE iznos = 0.5
 ORDER BY iznos;
 
@@ -843,103 +881,170 @@ ORDER BY iznos;
 SELECT karta_id, vrijeme_kupnje, razred, vrijeme_polaska, datum_polaska,
        ime, prezime
 FROM karta
-INNER JOIN kupac ON kupac_kupac_id = kupac_id;
+INNER JOIN kupac ON karta.kupac_kupac_id = kupac.kupac_id;
 
 
 --dohvacamo podatke o pojedinim kartama na pojedinim relacijama
 SELECT karta_id, vrijeme_kupnje, razred, vrijeme_polaska, datum_polaska,
        trajanje, polaziste, odrediste
 FROM karta 
-LEFT JOIN put ON karta_id = karta_id;
+LEFT JOIN put ON karta.karta_id = put.put_id;
 
 
 
 --koristeci agregirajuce fje
 
-SELECT COUNT(*) FROM karta;
+SELECT COUNT(*) 
+FROM karta;
 
 
-SELECT COUNT(*) FROM karta WHERE razred = 1;
+SELECT COUNT(*) 
+FROM karta 
+WHERE razred = 1;
 
 
-SELECT COUNT(*) FROM karta WHERE razred = 1 AND kupac_kupac_id IN (SELECT kupac_id FROM kupac WHERE kupac_id IN (SELECT kupac_kupac_id FROM kartica WHERE kategorija = 'student'));
+SELECT AVG(MAX(placa))
+FROM zaposlenik
+GROUP BY zaposlenik_id;
 
 
-SELECT COUNT(*) FROM karta WHERE razred = 1 AND kupac_kupac_id IN (SELECT kupac_id FROM kupac WHERE kupac_id IN (SELECT kupac_kupac_id FROM kartica WHERE kategorija = 'student')) AND put_put_id IN (SELECT put_id FROM put WHERE polaziste = 'Zagreb' AND odrediste = 'Split');
+SELECT zaposlenik_id, MEDIAN(placa)
+FROM zaposlenik
+GROUP BY zaposlenik_id
+ORDER BY zaposlenik_id;
 
 
-SELECT COUNT(*) FROM karta WHERE razred = 2 AND kupac_kupac_id IN (SELECT kupac_id FROM kupac WHERE kupac_id IN (SELECT kupac_kupac_id FROM kartica WHERE kategorija = 'umirovljenik')) AND put_put_id IN (SELECT put_id FROM put WHERE polaziste = 'Zadar' AND odrediste = 'Rijeka');
-
-
-SELECT COUNT(*) FROM karta WHERE razred = 1 AND kupac_kupac_id IN (SELECT kupac_id FROM kupac WHERE kupac_id IN (SELECT kupac_kupac_id FROM kartica WHERE kategorija = 'umirovljenik'));
+SELECT zaposlenik_id, prezime, placa,
+       RANK() OVER (PARTITION BY zaposlenik_id ORDER BY placa) RANK
+  FROM zaposlenik WHERE zaposlenik_id = 5
+  ORDER BY RANK, prezime;
 
 
 -- settanje default vrijednosti u razlicite tablice za razlicite atribute
 
 
-ALTER TABLE karta MODIFY rezervacija_sjedala DEFAULT 0;
-ALTER TABLE karta MODIFY razred DEFAULT 1;
-ALTER TABLE zaposlenik MODIFY ime DEFAULT 'Mario';
-ALTER TABLE zaposlenik MODIFY prezime DEFAULT 'Potocak';
-ALTER TABLE vlak MODIFY kapacitet DEFAULT 200;
+ALTER TABLE karta 
+MODIFY razred DEFAULT 1;
+
+
+ALTER TABLE vlak 
+MODIFY kapacitet DEFAULT 200;
+
+
+ALTER TABLE vlak
+MODIFY broj_vagona DEFAULT 5;
+
+
+ALTER TABLE zaposlenik
+MODIFY placa DEFAULT 5000;
+
+
+ALTER TABLE vlak
+MODIFY tip DEFAULT 'putnicki';
 
 
 --subquerys, nested querys etc
 
 
-SELECT * FROM zaposlenik WHERE placa = (SELECT MAX(placa) FROM zaposlenik);                               
+SELECT ime, prezime, placa, pocetak_rada, postaja_postaja_id
+FROM zaposlenik 
+WHERE placa = (SELECT MAX(placa) FROM zaposlenik);                               
 
 
-SELECT * FROM zaposlenik WHERE placa = (SELECT MIN(placa) FROM zaposlenik);
+SELECT ime, prezime, placa, pocetak_rada, postaja_postaja_id 
+FROM zaposlenik 
+WHERE placa = (SELECT MIN(placa) FROM zaposlenik);
 
 
-SELECT COUNT(*) FROM karta WHERE razred = 1 AND kupac_kupac_id IN (SELECT kupac_id FROM kupac WHERE kupac_id IN (SELECT kupac_kupac_id FROM kartica WHERE kategorija = 'umirovljenik')); 
+SELECT COUNT(*) 
+FROM karta 
+WHERE razred = 1 AND kupac_kupac_id IN 
+(SELECT kupac_id FROM kupac WHERE kupac_id IN (SELECT kupac_kupac_id FROM kartica WHERE kategorija = 'umirovljenik')); 
 
 
-SELECT COUNT(*) FROM karta WHERE razred = 1 AND kupac_kupac_id IN (SELECT kupac_id FROM kupac WHERE kupac_id IN (SELECT kupac_kupac_id FROM kartica WHERE kategorija = 'student'));
+SELECT COUNT(*) 
+FROM karta 
+WHERE razred = 2 AND kupac_kupac_id IN 
+(SELECT kupac_id FROM kupac WHERE kupac_id IN (SELECT kupac_kupac_id FROM kartica WHERE kategorija = 'student'));
 
 
-SELECT COUNT(*) FROM karta WHERE kupac_kupac_id IN (SELECT kupac_id FROM kupac WHERE kupac_id IN (SELECT kupac_kupac_id FROM kartica WHERE kategorija = 'student')) AND put_put_id IN (SELECT put_id FROM put WHERE polaziste = 'Zagreb' AND odrediste = 'Split');
-
-
-SELECT COUNT(*) FROM karta WHERE razred = 2 AND kupac_kupac_id IN (SELECT kupac_id FROM kupac WHERE kupac_id IN (SELECT kupac_kupac_id FROM kartica WHERE kategorija = 'umirovljenik')) AND put_put_id IN (SELECT put_id FROM put WHERE polaziste = 'Zadar' AND odrediste = 'Rijeka');
-
-
-SELECT COUNT(*) FROM karta WHERE razred = 1 AND kupac_kupac_id IN (SELECT kupac_id FROM kupac WHERE kupac_id IN (SELECT kupac_kupac_id FROM kartica WHERE kategorija = 'djeca')) AND put_put_id IN (SELECT put_id FROM put WHERE polaziste = 'Zagreb' AND odrediste = 'Varaždin');
+SELECT COUNT(*) 
+FROM karta 
+WHERE kupac_kupac_id IN 
+(SELECT kupac_id FROM kupac WHERE kupac_id IN (SELECT kupac_kupac_id FROM kartica WHERE kategorija = 'student')) 
+AND put_put_id IN (SELECT put_id FROM put WHERE polaziste = 'Zagreb' AND odrediste = 'Split');
 
 
 --dodani novi atributi u razlicite tablice
 
 
 ALTER TABLE karta ADD broj_karte NUMBER(10);
+
+UPDATE karta
+SET broj_karte = 1536  --update tablice karta, postavljamo broj karte na 1536 gdje je id karte 1
+WHERE karta_id = 1;
+
+SELECT broj_karte, karta_id
+FROM karta         --test query za prethodni update broja karte
+WHERE broj_karte = 1536;
+
+
+
 ALTER TABLE vlak ADD max_brzina INTEGER;
+
+UPDATE vlak
+SET max_brzina = 80   --update tablice vlak, postavljamo max_brzinu koju smo dodali u prethodnom redu na 80 gdje je id vlaka 5
+WHERE vlak_id = 5;
+
+SELECT max_brzina, vlak_id
+FROM vlak                    --test query za prethodni update max_brzine
+WHERE max_brzina = 80;
+WHERE max_brzina = 80;
+
+
+
+ALTER TABLE postaja ADD broj_perona INTEGER;
+
+UPDATE postaja
+SET broj_perona = 5   --update tablice postaja, postavljamo broj perona na 5 gdje je id postaje 1
+WHERE postaja_id = 1;
+
+SELECT broj_perona, postaja_id
+FROM postaja                    --test query za prethodni update broja perona
+WHERE broj_perona = 5;
 
 
 --uvjeti
 
 
-ALTER TABLE karta ADD CONSTRAINT karta_broj_karte_uq UNIQUE (broj_karte);
-ALTER TABLE karta ADD CONSTRAINT karta_broj_karte_ck CHECK (broj_karte > 0);
-ALTER TABLE vlak ADD CONSTRAINT vlak_max_brzina_ck CHECK (max_brzina > 0);
+ALTER TABLE zaposlenik ADD CONSTRAINT opis_posla_check 
+CHECK (opis_posla IN ('strojovoda', 'blagajnik', 'kondukter'));
+
+INSERT INTO zaposlenik (zaposlenik_id, ime, prezime, adresa, dob, placa, opis_posla, tel, pocetak_rada, kraj_radnog_odnosa, postaja_postaja_id)
+VALUES (52, 'Mijo', 'Majić', 'Stipe Kruzica 23', 19, 7500, 'mehaničar', 988758403, TO_DATE('2022-01-01', 'YYYY-MM-DD'), TO_DATE('2023-12-31', 'YYYY-MM-DD'), 130);
+
+
+
+ALTER TABLE karta ADD CONSTRAINT razred_check
+CHECK (razred IN (1, 2));
+
+INSERT INTO karta (karta_id, vrijeme_kupnje, rezervacija_sjedala, razred, vrijeme_polaska, datum_polaska, kupac_kupac_id, put_put_id)
+VALUES (52, TO_TIMESTAMP('09:45:00', 'HH24:MI:SS'), 2, 3, TO_TIMESTAMP('09:45:00', 'HH24:MI:SS'), TO_DATE('2023-09-06', 'YYYY-MM-DD'), 100, 29);
 
 
 --dodani komentari
 
 
-/*COMMENT ON TABLE karta IS 'Tablica koja sadrži podatke o kartama';
-COMMENT ON TABLE kupac IS 'Tablica koja sadrži podatke o kupcima';
-COMMENT ON TABLE put IS 'Tablica koja sadrži podatke o putovanjima';
-COMMENT ON TABLE vlak IS 'Tablica koja sadrži podatke o vlakovima';
-COMMENT ON TABLE zaposlenik IS 'Tablica koja sadrži podatke o zaposlenicima';
+COMMENT ON TABLE karta IS 'This table stores data about tickets';
+COMMENT ON TABLE popust IS 'This table stores data about popust you can get with your card';
+COMMENT ON TABLE postaja IS 'This table stores data about stations';
+COMMENT ON TABLE zaposlenik IS 'This table stores data about every employee';
+COMMENT ON TABLE kupac IS 'This table stores data about every customer';
 
 
-SELECT * FROM user_tab_comments;*/
-
-
-COMMENT ON COLUMN karta.rezervacija_sjedala IS 'Oznaka rezervacije sjedala za kartu';
-COMMENT ON COLUMN karta.vrijeme_kupnje IS 'Vrijeme kada je karta kupljena';
-
-SELECT * FROM user_col_comments;
+SELECT table_name, comments
+FROM all_tab_comments
+WHERE table_name IN ('KARTA', 'POPUST', 'POSTAJA', 'ZAPOSLENIK', 'KUPAC');
 
 
 -- indexi
@@ -947,25 +1052,84 @@ SELECT * FROM user_col_comments;
 
 CREATE INDEX karta_kupac_kupac_id_idx ON karta (kupac_kupac_id);
 CREATE INDEX karta_put_put_id_idx ON karta (put_put_id);
-CREATE INDEX karta_razred_idx ON karta (razred);
-CREATE INDEX karta_rezervacija_sjedala_idx ON karta (rezervacija_sjedala);
 CREATE INDEX karta_vrijeme_polaska_idx ON karta (vrijeme_polaska);
+CREATE INDEX zaposlenik_placa_idx ON zaposlenik (placa);
+CREATE INDEX popust_iznos_idx ON popust (iznos);
+CREATE BITMAP INDEX karta_razred_idx ON karta (razred);
+CREATE BITMAP INDEX karta_rezervacija_sjedala_idx ON karta (rezervacija_sjedala);
 
 
 -- procedure
 
 
-CREATE OR REPLACE PROCEDURE dodaj_kartu (vrijeme_kupnje IN DATE, rezervacija_sjedala IN NUMBER, razred IN NUMBER, vrijeme_polaska IN DATE, datum_polaska IN DATE, kupac_kupac_id IN NUMBER, put_put_id IN NUMBER)
-IS
+CREATE OR REPLACE PROCEDURE remove_zap (zaposlenik_id_to_delete NUMBER) AS
 BEGIN
-INSERT INTO karta (vrijeme_kupnje, rezervacija_sjedala, razred, vrijeme_polaska, datum_polaska, kupac_kupac_id, put_put_id) VALUES (vrijeme_kupnje, rezervacija_sjedala, razred, vrijeme_polaska, datum_polaska, kupac_kupac_id, put_put_id);
-END;
+   DELETE FROM zaposlenik_vlak
+   WHERE zaposlenik_zaposlenik_id = zaposlenik_id_to_delete;
 
-CREATE OR REPLACE PROCEDURE izbrisi_kartu (p_karta_id IN NUMBER)
-IS
-BEGIN
-  DELETE FROM karta WHERE karta_id = p_karta_id;
+
+   DELETE FROM zaposlenik
+   WHERE zaposlenik.zaposlenik_id = zaposlenik_id_to_delete;
+   COMMIT; 
 END;
+/
+
+INSERT INTO zaposlenik (zaposlenik_id, ime, prezime, adresa, dob, placa, opis_posla, tel, pocetak_rada, kraj_radnog_odnosa, postaja_postaja_id)
+VALUES (51, 'Stipa', 'Stipić', 'Drniška 8', 24, 3000, 'kondukter', 222333444, TO_DATE('2022-01-01', 'YYYY-MM-DD'), TO_DATE('2023-12-31', 'YYYY-MM-DD'), 130);
+
+SELECT * FROM zaposlenik;      -- provjera nalazi li se zaposlenik s 54 id u tablici zaposlenik
+
+CALL remove_zap(51);
+
+SELECT * FROM zaposlenik;
+
+
+
+
+CREATE OR REPLACE PROCEDURE delete_ticket (karta_id NUMBER) AS 
+BEGIN
+   DELETE FROM karta
+   WHERE karta_id = delete_ticket.karta_id; 
+
+   COMMIT;
+END;
+/
+
+
+INSERT INTO karta (karta_id, vrijeme_kupnje, rezervacija_sjedala, razred, vrijeme_polaska, datum_polaska, kupac_kupac_id, put_put_id)
+VALUES (51, TO_TIMESTAMP('09:45:00', 'HH24:MI:SS'), 2, 2, TO_TIMESTAMP('09:45:00', 'HH24:MI:SS'), TO_DATE('2023-09-06', 'YYYY-MM-DD'), 54, 1);
+
+SELECT * FROM karta;      -- provjera nalazi li se karta s 52 id u tablici karta
+
+CALL delete_ticket(51);
+
+SELECT * FROM karta;
+
+
+
+CREATE OR REPLACE PROCEDURE update_kartica_with_kupac (
+    new_kupac_id IN kupac.kupac_id%TYPE,
+    kartica_id_to_update IN kartica.kartica_id%TYPE
+) AS
+BEGIN
+   UPDATE kartica
+   SET kupac_kupac_id = new_kupac_id
+   WHERE kartica_id = kartica_id_to_update;
+
+   COMMIT;
+END;
+/
+
+SELECT * FROM kartica;     --ispis svega sto se nalazi unutar tablice kartica prije updatea tj. poziva fje
+
+INSERT INTO kupac (kupac_id, ime, prezime) VALUES (101,'Dario','Ivanković');
+INSERT INTO kartica (kartica_id, kupac_kupac_id, kategorija) VALUES (21, 21, 'student');
+
+
+CALL update_kartica_with_kupac(101, 21);
+
+SELECT * FROM kartica;      -- provjera nalazi li se kupac s id 101 u tablici kartica
+
 
 
 -- okidači

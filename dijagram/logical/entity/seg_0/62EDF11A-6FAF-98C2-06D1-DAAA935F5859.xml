@@ -1,0 +1,58 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="62EDF11A-6FAF-98C2-06D1-DAAA935F5859" name="POSTAJA">
+<createdBy>Antonio</createdBy>
+<createdTime>2023-05-27 17:36:57 UTC</createdTime>
+<ownerDesignName>dijagram</ownerDesignName>
+<engineerTo>
+<item key="ED572883-7463-FAA4-49CC-69F012ACEBE8" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="postaja_id" id="BBE0E45A-999A-70EB-F97B-2D1A6ACD8B28">
+<createdBy>Antonio</createdBy>
+<createdTime>2023-05-27 17:37:03 UTC</createdTime>
+<ownerDesignName>dijagram</ownerDesignName>
+<engineerTo>
+<item key="ED572883-7463-FAA4-49CC-69F012ACEBE8" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="naziv_mjesta" id="19C8BE39-0F7E-ED98-7CD6-49D0D1BF8CBD">
+<createdBy>Antonio</createdBy>
+<createdTime>2023-05-27 17:37:28 UTC</createdTime>
+<ownerDesignName>dijagram</ownerDesignName>
+<engineerTo>
+<item key="ED572883-7463-FAA4-49CC-69F012ACEBE8" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="B539FEFA-F19E-F288-41BA-016F331F4519" name="POSTAJA PK">
+<createdBy>Antonio</createdBy>
+<createdTime>2023-05-27 17:37:11 UTC</createdTime>
+<ownerDesignName>dijagram</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
+<engineerTo>
+<item key="ED572883-7463-FAA4-49CC-69F012ACEBE8" value="false"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>BBE0E45A-999A-70EB-F97B-2D1A6ACD8B28</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

@@ -1,0 +1,134 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="A49133D8-4E23-5CD1-396B-249535E8C214" name="KARTA">
+<createdBy>Antonio</createdBy>
+<createdTime>2023-05-27 17:29:03 UTC</createdTime>
+<ownerDesignName>dijagram</ownerDesignName>
+<engineerTo>
+<item key="ED572883-7463-FAA4-49CC-69F012ACEBE8" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="karta_id" id="9F8D1562-7A35-9938-99BB-780C0BF72CBE">
+<createdBy>Antonio</createdBy>
+<createdTime>2023-05-27 17:29:09 UTC</createdTime>
+<ownerDesignName>dijagram</ownerDesignName>
+<engineerTo>
+<item key="ED572883-7463-FAA4-49CC-69F012ACEBE8" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="vrijeme_kupnje" id="DBF912CC-A473-2A86-4604-946E5F3B87F4">
+<createdBy>Antonio</createdBy>
+<createdTime>2023-05-27 17:31:13 UTC</createdTime>
+<ownerDesignName>dijagram</ownerDesignName>
+<engineerTo>
+<item key="ED572883-7463-FAA4-49CC-69F012ACEBE8" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="rezervacija_sjedala" id="BA824A23-29F0-B99C-4F59-7BDCD1232C28">
+<createdBy>Antonio</createdBy>
+<createdTime>2023-05-27 17:31:20 UTC</createdTime>
+<ownerDesignName>dijagram</ownerDesignName>
+<engineerTo>
+<item key="ED572883-7463-FAA4-49CC-69F012ACEBE8" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="razred" id="90ED1893-7855-2FC5-5942-45F07F8EB45A">
+<createdBy>Antonio</createdBy>
+<createdTime>2023-05-27 21:55:32 UTC</createdTime>
+<ownerDesignName>dijagram</ownerDesignName>
+<engineerTo>
+<item key="ED572883-7463-FAA4-49CC-69F012ACEBE8" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="vrijeme_polaska" id="00ED393F-C3D7-39D5-E1FB-EEFA4602FDD9">
+<createdBy>Antonio</createdBy>
+<createdTime>2023-06-13 20:11:08 UTC</createdTime>
+<ownerDesignName>dijagram</ownerDesignName>
+<engineerTo>
+<item key="ED572883-7463-FAA4-49CC-69F012ACEBE8" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="datum_polaska" id="8C6236CB-37C2-DD28-CD93-0AD22E00E482">
+<createdBy>Antonio</createdBy>
+<createdTime>2023-06-13 20:11:16 UTC</createdTime>
+<ownerDesignName>dijagram</ownerDesignName>
+<engineerTo>
+<item key="ED572883-7463-FAA4-49CC-69F012ACEBE8" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="kupac_id" id="7F197B54-B76C-CA4B-7D06-8FDD82E61ABB">
+<createdBy>Antonio</createdBy>
+<createdTime>2023-07-17 08:39:20 UTC</createdTime>
+<generatorID>3EB0143A-BBC3-F66A-C6CC-CA42828214A2</generatorID>
+<ownerDesignName>dijagram</ownerDesignName>
+<engineerTo>
+<item key="ED572883-7463-FAA4-49CC-69F012ACEBE8" value="true"/>
+</engineerTo>
+<referedAttribute>D7A10E06-796F-1EF5-F885-D715327F2795</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="put_id" id="AD9EF758-4BD5-C10B-8C6E-84C916D7650A">
+<createdBy>Antonio</createdBy>
+<createdTime>2023-07-17 08:59:18 UTC</createdTime>
+<generatorID>2E99C13F-DA4D-4030-C5ED-16B9C9C20253</generatorID>
+<ownerDesignName>dijagram</ownerDesignName>
+<engineerTo>
+<item key="ED572883-7463-FAA4-49CC-69F012ACEBE8" value="true"/>
+</engineerTo>
+<referedAttribute>A6202241-F7BF-EDF5-5A65-5B4AD6B48267</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="A747266D-C225-3B70-BF24-E7A5292E49B2" name="KARTA PK">
+<createdBy>Antonio</createdBy>
+<createdTime>2023-05-27 17:29:16 UTC</createdTime>
+<ownerDesignName>dijagram</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
+<engineerTo>
+<item key="ED572883-7463-FAA4-49CC-69F012ACEBE8" value="false"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>9F8D1562-7A35-9938-99BB-780C0BF72CBE</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

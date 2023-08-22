@@ -1,0 +1,167 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="36833088-F4AA-D3BD-44E4-05DC72AAA1ED" name="ZAPOSLENIK">
+<createdBy>Antonio</createdBy>
+<createdTime>2023-07-17 09:15:47 UTC</createdTime>
+<generatorID>48C30EF4-2856-E3C3-D173-F3684DF38EA0</generatorID>
+<ownerDesignName>dijagram</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="zaposlenik_id" id="E590066B-9F50-2346-3A73-867AB8296F15">
+<createdBy>Antonio</createdBy>
+<createdTime>2023-07-17 09:15:47 UTC</createdTime>
+<generatorID>2AFBEB14-721F-05C9-A350-3467F25D2640</generatorID>
+<ownerDesignName>dijagram</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ime" id="CEC226DB-F306-8F4E-6CC5-946F2506873B">
+<createdBy>Antonio</createdBy>
+<createdTime>2023-07-17 09:15:47 UTC</createdTime>
+<generatorID>0E9E79FE-F225-8A3B-5023-DDA4FA25DF6B</generatorID>
+<ownerDesignName>dijagram</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>15</dataTypeSize>
+<ownDataTypeParameters>15,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="prezime" id="EAE82CFE-4784-47B7-7191-942BAC92D06F">
+<createdBy>Antonio</createdBy>
+<createdTime>2023-07-17 09:15:47 UTC</createdTime>
+<generatorID>37161AAA-406C-5209-74B6-DC5297A01749</generatorID>
+<ownerDesignName>dijagram</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>15</dataTypeSize>
+<ownDataTypeParameters>15,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="adresa" id="6ABDA58E-B248-88BB-A7AD-D010217444E2">
+<createdBy>Antonio</createdBy>
+<createdTime>2023-07-17 09:15:47 UTC</createdTime>
+<generatorID>1AC58031-B676-A479-9886-5F31781D8650</generatorID>
+<ownerDesignName>dijagram</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30</dataTypeSize>
+<ownDataTypeParameters>30,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DOB" id="EA4D3DAC-CA8B-EAA9-5ACA-0DA4AEC83FAD">
+<createdBy>Antonio</createdBy>
+<createdTime>2023-07-17 09:15:47 UTC</createdTime>
+<generatorID>202F762E-A2CC-5305-ACB8-399660A4FCA0</generatorID>
+<ownerDesignName>dijagram</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="placa" id="A3057BD0-0637-FACA-DDA8-650D48A88C90">
+<createdBy>Antonio</createdBy>
+<createdTime>2023-07-17 09:15:47 UTC</createdTime>
+<generatorID>98BE03AC-3BA7-5F9B-0D71-D54248C74872</generatorID>
+<ownerDesignName>dijagram</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="opis_posla" id="49464E46-EE31-F21E-65ED-F52C0684CAD3">
+<createdBy>Antonio</createdBy>
+<createdTime>2023-07-17 09:15:47 UTC</createdTime>
+<generatorID>EC498AAD-4B66-9D2E-4544-C6D9F5885AE1</generatorID>
+<ownerDesignName>dijagram</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10</dataTypeSize>
+<ownDataTypeParameters>10,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="tel" id="2F295744-085B-79DC-7073-64297C944582">
+<createdBy>Antonio</createdBy>
+<createdTime>2023-07-17 09:15:47 UTC</createdTime>
+<generatorID>84764F3C-9D7C-8E2A-6F3F-35CC8745D468</generatorID>
+<ownerDesignName>dijagram</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="pocetak_rada" id="D11C232E-9ACF-A903-6692-2839F4EB6D61">
+<createdBy>Antonio</createdBy>
+<createdTime>2023-07-17 09:15:47 UTC</createdTime>
+<generatorID>3F806181-DADA-BA1F-C1C5-E132B4074326</generatorID>
+<ownerDesignName>dijagram</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="kraj_radnog_odnosa" id="2BCBBA3B-7E82-2EEA-4BA8-1DB78E6E0CFA">
+<createdBy>Antonio</createdBy>
+<createdTime>2023-07-17 09:15:47 UTC</createdTime>
+<generatorID>C33E96C4-B5B6-6E18-DA74-E84C118EE559</generatorID>
+<ownerDesignName>dijagram</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="POSTAJA_postaja_id" id="4E42A309-77D9-CD9F-FE3B-C88F884FAF69">
+<createdBy>Antonio</createdBy>
+<createdTime>2023-07-17 09:15:47 UTC</createdTime>
+<generatorID>96A3D632-D1AA-4A69-51AE-18038F43D1BA</generatorID>
+<ownerDesignName>dijagram</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="006DC829-2CF1-FE80-3850-A441A6AA44D4" referredColumn="2DB2BB30-57E1-4919-AEB9-17F96E799BFC"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="C89668A3-1CCB-2A4C-C78E-84F93F8FE798" name="ZAPOSLENIK_PK">
+<createdBy>Antonio</createdBy>
+<createdTime>2023-07-17 09:15:47 UTC</createdTime>
+<generatorID>D73C1853-56F6-394D-ACD4-AAD023871A05</generatorID>
+<ownerDesignName>dijagram</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="E590066B-9F50-2346-3A73-867AB8296F15"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="F31895A7-4318-4037-0EDF-B4F0E0209ED8" name="ZAPOSLENIK_POSTAJA_FK">
+<createdBy>Antonio</createdBy>
+<createdTime>2023-07-17 09:15:47 UTC</createdTime>
+<generatorID>2C55C053-0315-0A09-51EF-334AD75E11E1</generatorID>
+<ownerDesignName>dijagram</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="4E42A309-77D9-CD9F-FE3B-C88F884FAF69"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

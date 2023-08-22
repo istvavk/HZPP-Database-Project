@@ -1,0 +1,76 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="AE190F96-7035-F1D8-300B-4F11A853C452" name="ZAPOSLENIK_VLAK">
+<createdBy>Antonio</createdBy>
+<createdTime>2023-07-17 09:15:47 UTC</createdTime>
+<ownerDesignName>dijagram</ownerDesignName>
+<ordsAlias>relation_20</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ZAPOSLENIK_zaposlenik_id" id="9F056928-DD98-C13C-FC07-B08C7C13017C">
+<createdBy>Antonio</createdBy>
+<createdTime>2023-07-17 09:15:47 UTC</createdTime>
+<ownerDesignName>dijagram</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="85EBE31A-FFFA-808B-6925-306A14601676" referredColumn="E590066B-9F50-2346-3A73-867AB8296F15"/>
+</associations>
+</Column>
+<Column name="VLAK_vlak_id" id="CF8775C6-9A5E-127C-DDBD-ADA66D768043">
+<createdBy>Antonio</createdBy>
+<createdTime>2023-07-17 09:15:47 UTC</createdTime>
+<ownerDesignName>dijagram</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="C4249ABE-32B3-C142-78FA-E255966E549E" referredColumn="6038FAC4-42F6-574E-FD36-C47A97BB1456"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="9D9AFC59-90D6-BAAF-81F1-3471C5810A09" name="Relation_20_PK">
+<createdBy>Antonio</createdBy>
+<createdTime>2023-07-17 09:15:47 UTC</createdTime>
+<ownerDesignName>dijagram</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="9F056928-DD98-C13C-FC07-B08C7C13017C"/>
+<colUsage columnID="CF8775C6-9A5E-127C-DDBD-ADA66D768043"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="EA4569D4-3ECB-75D0-1DD9-54597FADF1EC" name="Relation_20_ZAPOSLENIK_FK">
+<createdBy>Antonio</createdBy>
+<createdTime>2023-07-17 09:15:47 UTC</createdTime>
+<generatorID>3119E02E-0AFB-7CC4-5E1E-F69DD4192A8D</generatorID>
+<ownerDesignName>dijagram</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="9F056928-DD98-C13C-FC07-B08C7C13017C"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="B78F2952-A9E6-E03C-9A89-FFB903351B12" name="Relation_20_VLAK_FK">
+<createdBy>Antonio</createdBy>
+<createdTime>2023-07-17 09:15:47 UTC</createdTime>
+<generatorID>3119E02E-0AFB-7CC4-5E1E-F69DD4192A8D</generatorID>
+<ownerDesignName>dijagram</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="CF8775C6-9A5E-127C-DDBD-ADA66D768043"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

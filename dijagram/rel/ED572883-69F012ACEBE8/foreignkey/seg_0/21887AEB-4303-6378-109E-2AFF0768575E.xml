@@ -1,0 +1,17 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="21887AEB-4303-6378-109E-2AFF0768575E" containerWithKeyObject="D7EB5A68-E45D-9C09-FB1C-F41B17179962" localFKIndex="AC1F8178-B2ED-2AA8-C5A2-11272A36FA05" name="KARTA_KUPAC_FK">
+<createdBy>Antonio</createdBy>
+<createdTime>2023-07-17 09:15:47 UTC</createdTime>
+<generatorID>3EB0143A-BBC3-F66A-C6CC-CA42828214A2</generatorID>
+<ownerDesignName>dijagram</ownerDesignName>
+<referredTableLongName>KUPAC</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>4AB9D9C4-47C8-E090-D469-149006A72AF3</referredTableID>
+<keyObject>0A6181F4-9D6A-62DF-D660-E17FB0591FE0</keyObject>
+<referredKeyID>0A6181F4-9D6A-62DF-D660-E17FB0591FE0</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>kupac_id</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

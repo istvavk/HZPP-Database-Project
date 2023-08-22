@@ -1,0 +1,73 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="E2F28E57-7C20-8CD4-EEE3-5065DBFCFAA7" name="PUT">
+<createdBy>Antonio</createdBy>
+<createdTime>2023-07-17 09:15:47 UTC</createdTime>
+<generatorID>93643D45-894A-9437-100C-F13869EE1449</generatorID>
+<ownerDesignName>dijagram</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="put_id" id="0DE30FB1-CE47-4D73-3C6D-2758F85CFE8D">
+<createdBy>Antonio</createdBy>
+<createdTime>2023-07-17 09:15:47 UTC</createdTime>
+<generatorID>A6202241-F7BF-EDF5-5A65-5B4AD6B48267</generatorID>
+<ownerDesignName>dijagram</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="trajanje" id="DEDE2AC7-6610-4A4F-303D-FCB9480B5A0B">
+<createdBy>Antonio</createdBy>
+<createdTime>2023-07-17 09:15:47 UTC</createdTime>
+<generatorID>95CF6413-3552-EF57-8605-38F44AC02869</generatorID>
+<ownerDesignName>dijagram</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT049</logicalDatatype>
+<dataTypePrecision>2</dataTypePrecision>
+<ownDataTypeParameters>,2,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="polaziste" id="F7D0C7F6-F436-F723-B2BF-74548AA36DF3">
+<createdBy>Antonio</createdBy>
+<createdTime>2023-07-17 09:15:47 UTC</createdTime>
+<generatorID>8614188D-D04E-99E0-7C6D-397814B38568</generatorID>
+<ownerDesignName>dijagram</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="odrediste" id="928956F4-4E93-3249-5617-200336750969">
+<createdBy>Antonio</createdBy>
+<createdTime>2023-07-17 09:15:47 UTC</createdTime>
+<generatorID>39B33B84-63B6-459E-55FE-9C1DC897244E</generatorID>
+<ownerDesignName>dijagram</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="2FB518BB-C549-FC34-3D3E-053088FB3F64" name="PUT_PK">
+<createdBy>Antonio</createdBy>
+<createdTime>2023-07-17 09:15:47 UTC</createdTime>
+<generatorID>9C9A4518-6565-F124-63B0-222751BA01D3</generatorID>
+<ownerDesignName>dijagram</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="0DE30FB1-CE47-4D73-3C6D-2758F85CFE8D"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

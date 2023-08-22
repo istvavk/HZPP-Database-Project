@@ -1,0 +1,72 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="1E85645A-401A-97EB-285F-BE95D0FA0698" name="KARTICA">
+<createdBy>Antonio</createdBy>
+<createdTime>2023-05-27 17:27:26 UTC</createdTime>
+<ownerDesignName>dijagram</ownerDesignName>
+<engineerTo>
+<item key="ED572883-7463-FAA4-49CC-69F012ACEBE8" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="kartica_id" id="243E0117-59B6-DEBB-3182-9ABFAA56DC25">
+<createdBy>Antonio</createdBy>
+<createdTime>2023-05-27 17:27:33 UTC</createdTime>
+<ownerDesignName>dijagram</ownerDesignName>
+<engineerTo>
+<item key="ED572883-7463-FAA4-49CC-69F012ACEBE8" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="kupac_id" id="F47D3F1F-4FE9-D48A-5AFF-C95C92AF3B6B">
+<createdBy>Antonio</createdBy>
+<createdTime>2023-05-27 18:01:05 UTC</createdTime>
+<generatorID>794FF886-8EC7-5A52-DE8D-8C97E310B056</generatorID>
+<ownerDesignName>dijagram</ownerDesignName>
+<engineerTo>
+<item key="ED572883-7463-FAA4-49CC-69F012ACEBE8" value="true"/>
+</engineerTo>
+<referedAttribute>D7A10E06-796F-1EF5-F885-D715327F2795</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="kategorija" id="2FC99953-357F-EE47-BC58-728481508BB5">
+<createdBy>Antonio</createdBy>
+<createdTime>2023-05-27 21:47:46 UTC</createdTime>
+<ownerDesignName>dijagram</ownerDesignName>
+<engineerTo>
+<item key="ED572883-7463-FAA4-49CC-69F012ACEBE8" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="94C4D8AB-FE64-584D-8E57-E3E0EE5465AE" name="KARTICA PK">
+<createdBy>Antonio</createdBy>
+<createdTime>2023-05-27 17:27:44 UTC</createdTime>
+<ownerDesignName>dijagram</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
+<engineerTo>
+<item key="ED572883-7463-FAA4-49CC-69F012ACEBE8" value="false"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>243E0117-59B6-DEBB-3182-9ABFAA56DC25</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

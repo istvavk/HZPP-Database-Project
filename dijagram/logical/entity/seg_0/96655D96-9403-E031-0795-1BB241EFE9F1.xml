@@ -1,0 +1,82 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="96655D96-9403-E031-0795-1BB241EFE9F1" name="VLAK">
+<createdBy>Antonio</createdBy>
+<createdTime>2023-05-27 17:37:47 UTC</createdTime>
+<ownerDesignName>dijagram</ownerDesignName>
+<engineerTo>
+<item key="ED572883-7463-FAA4-49CC-69F012ACEBE8" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="vlak_id" id="C1F1A392-1F7B-4D85-F735-B5525849DB8A">
+<createdBy>Antonio</createdBy>
+<createdTime>2023-05-27 17:37:53 UTC</createdTime>
+<ownerDesignName>dijagram</ownerDesignName>
+<engineerTo>
+<item key="ED572883-7463-FAA4-49CC-69F012ACEBE8" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="kapacitet" id="17FA3208-1446-502F-A942-56DAD4287645">
+<createdBy>Antonio</createdBy>
+<createdTime>2023-05-27 17:38:02 UTC</createdTime>
+<ownerDesignName>dijagram</ownerDesignName>
+<engineerTo>
+<item key="ED572883-7463-FAA4-49CC-69F012ACEBE8" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="tip" id="A46FDDE9-E4CC-8162-1FC6-CBDB53F5DEA7">
+<createdBy>Antonio</createdBy>
+<createdTime>2023-05-27 21:59:56 UTC</createdTime>
+<ownerDesignName>dijagram</ownerDesignName>
+<engineerTo>
+<item key="ED572883-7463-FAA4-49CC-69F012ACEBE8" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="broj_vagona" id="1D455A3A-76A4-2C65-3E74-3BA29EB70FCE">
+<createdBy>Antonio</createdBy>
+<createdTime>2023-05-27 22:00:01 UTC</createdTime>
+<ownerDesignName>dijagram</ownerDesignName>
+<engineerTo>
+<item key="ED572883-7463-FAA4-49CC-69F012ACEBE8" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="ECE77346-096F-5CF9-F88E-A979D7493109" name="VLAK PK">
+<createdBy>Antonio</createdBy>
+<createdTime>2023-05-27 17:38:01 UTC</createdTime>
+<ownerDesignName>dijagram</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
+<engineerTo>
+<item key="ED572883-7463-FAA4-49CC-69F012ACEBE8" value="false"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>C1F1A392-1F7B-4D85-F735-B5525849DB8A</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

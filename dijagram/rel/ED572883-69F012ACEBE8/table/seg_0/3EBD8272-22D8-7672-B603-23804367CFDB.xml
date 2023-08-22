@@ -1,0 +1,49 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="3EBD8272-22D8-7672-B603-23804367CFDB" name="POSTAJA">
+<createdBy>Antonio</createdBy>
+<createdTime>2023-07-17 09:15:47 UTC</createdTime>
+<generatorID>62EDF11A-6FAF-98C2-06D1-DAAA935F5859</generatorID>
+<ownerDesignName>dijagram</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="postaja_id" id="2DB2BB30-57E1-4919-AEB9-17F96E799BFC">
+<createdBy>Antonio</createdBy>
+<createdTime>2023-07-17 09:15:47 UTC</createdTime>
+<generatorID>BBE0E45A-999A-70EB-F97B-2D1A6ACD8B28</generatorID>
+<ownerDesignName>dijagram</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="naziv_mjesta" id="0EDA34E6-9FA2-6A52-A33F-681E89BB352B">
+<createdBy>Antonio</createdBy>
+<createdTime>2023-07-17 09:15:47 UTC</createdTime>
+<generatorID>19C8BE39-0F7E-ED98-7CD6-49D0D1BF8CBD</generatorID>
+<ownerDesignName>dijagram</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="01289FB2-0E96-8589-273A-3720BA90865B" name="POSTAJA_PK">
+<createdBy>Antonio</createdBy>
+<createdTime>2023-07-17 09:15:47 UTC</createdTime>
+<generatorID>B539FEFA-F19E-F288-41BA-016F331F4519</generatorID>
+<ownerDesignName>dijagram</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="2DB2BB30-57E1-4919-AEB9-17F96E799BFC"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

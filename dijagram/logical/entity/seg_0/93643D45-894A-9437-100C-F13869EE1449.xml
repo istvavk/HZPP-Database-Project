@@ -1,0 +1,82 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="93643D45-894A-9437-100C-F13869EE1449" name="PUT">
+<createdBy>Antonio</createdBy>
+<createdTime>2023-06-29 14:46:48 UTC</createdTime>
+<ownerDesignName>dijagram</ownerDesignName>
+<engineerTo>
+<item key="ED572883-7463-FAA4-49CC-69F012ACEBE8" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="put_id" id="A6202241-F7BF-EDF5-5A65-5B4AD6B48267">
+<createdBy>Antonio</createdBy>
+<createdTime>2023-06-29 14:46:54 UTC</createdTime>
+<ownerDesignName>dijagram</ownerDesignName>
+<engineerTo>
+<item key="ED572883-7463-FAA4-49CC-69F012ACEBE8" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="trajanje" id="95CF6413-3552-EF57-8605-38F44AC02869">
+<createdBy>Antonio</createdBy>
+<createdTime>2023-06-29 14:47:01 UTC</createdTime>
+<ownerDesignName>dijagram</ownerDesignName>
+<engineerTo>
+<item key="ED572883-7463-FAA4-49CC-69F012ACEBE8" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="polaziste" id="8614188D-D04E-99E0-7C6D-397814B38568">
+<createdBy>Antonio</createdBy>
+<createdTime>2023-06-29 14:47:45 UTC</createdTime>
+<ownerDesignName>dijagram</ownerDesignName>
+<engineerTo>
+<item key="ED572883-7463-FAA4-49CC-69F012ACEBE8" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="odrediste" id="39B33B84-63B6-459E-55FE-9C1DC897244E">
+<createdBy>Antonio</createdBy>
+<createdTime>2023-06-29 14:47:49 UTC</createdTime>
+<ownerDesignName>dijagram</ownerDesignName>
+<engineerTo>
+<item key="ED572883-7463-FAA4-49CC-69F012ACEBE8" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="9C9A4518-6565-F124-63B0-222751BA01D3" name="PUT PK">
+<createdBy>Antonio</createdBy>
+<createdTime>2023-06-29 14:47:00 UTC</createdTime>
+<ownerDesignName>dijagram</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
+<engineerTo>
+<item key="ED572883-7463-FAA4-49CC-69F012ACEBE8" value="false"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>A6202241-F7BF-EDF5-5A65-5B4AD6B48267</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

@@ -1,0 +1,86 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="15D5828F-4D35-D8AB-96D3-15DD08EC6B06" name="KARTICA">
+<createdBy>Antonio</createdBy>
+<createdTime>2023-07-17 09:15:47 UTC</createdTime>
+<generatorID>1E85645A-401A-97EB-285F-BE95D0FA0698</generatorID>
+<ownerDesignName>dijagram</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="kartica_id" id="E88E8733-CC66-09E6-B2E4-6CB1D6CE1795">
+<createdBy>Antonio</createdBy>
+<createdTime>2023-07-17 09:15:47 UTC</createdTime>
+<generatorID>243E0117-59B6-DEBB-3182-9ABFAA56DC25</generatorID>
+<ownerDesignName>dijagram</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="KUPAC_kupac_id" id="7EC496B8-90ED-CA6C-FAE8-EA044EB2FC46">
+<createdBy>Antonio</createdBy>
+<createdTime>2023-07-17 09:15:47 UTC</createdTime>
+<generatorID>F47D3F1F-4FE9-D48A-5AFF-C95C92AF3B6B</generatorID>
+<ownerDesignName>dijagram</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="45852D0C-0821-8837-3970-A9233E37EFD4" referredColumn="423759D3-B519-97FE-E3DB-F57BEC0BA80C"/>
+</associations>
+</Column>
+<Column name="kategorija" id="A55A3BD4-4368-1263-6CAD-40F8AC78C9A5">
+<createdBy>Antonio</createdBy>
+<createdTime>2023-07-17 09:15:47 UTC</createdTime>
+<generatorID>2FC99953-357F-EE47-BC58-728481508BB5</generatorID>
+<ownerDesignName>dijagram</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>15</dataTypeSize>
+<ownDataTypeParameters>15,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="35D06CA7-709F-431D-FB77-34F3C8A04A07" name="KARTICA_PK">
+<createdBy>Antonio</createdBy>
+<createdTime>2023-07-17 09:15:47 UTC</createdTime>
+<generatorID>94C4D8AB-FE64-584D-8E57-E3E0EE5465AE</generatorID>
+<ownerDesignName>dijagram</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="E88E8733-CC66-09E6-B2E4-6CB1D6CE1795"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="114C7AF4-E43B-5B8E-3CC9-88B81000D7BE" name="KARTICA__IDX">
+<createdBy>Antonio</createdBy>
+<createdTime>2023-07-17 09:15:47 UTC</createdTime>
+<ownerDesignName>dijagram</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<relationGeneratorID>794FF886-8EC7-5A52-DE8D-8C97E310B056</relationGeneratorID>
+<indexColumnUsage>
+<colUsage columnID="7EC496B8-90ED-CA6C-FAE8-EA044EB2FC46"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="E2AC6A3B-4B63-EBAA-56AE-B48224CADF57" name="KARTICA_KUPAC_FK">
+<createdBy>Antonio</createdBy>
+<createdTime>2023-07-17 09:15:47 UTC</createdTime>
+<generatorID>794FF886-8EC7-5A52-DE8D-8C97E310B056</generatorID>
+<ownerDesignName>dijagram</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="7EC496B8-90ED-CA6C-FAE8-EA044EB2FC46"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

@@ -1,0 +1,17 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="07FB6FF3-732A-59F3-454F-D0BD6F0CFDCE" containerWithKeyObject="84B4ABBE-B652-95E3-CB69-5FF23970AEC7" localFKIndex="0B7E67A3-C780-89FE-33A6-4B52404DEDBD" name="Relation_11_PUT_FK">
+<createdBy>Antonio</createdBy>
+<createdTime>2023-07-17 09:15:47 UTC</createdTime>
+<generatorID>DA176638-F428-3548-45E7-78C975B4520D</generatorID>
+<ownerDesignName>dijagram</ownerDesignName>
+<referredTableLongName>PUT</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>E2F28E57-7C20-8CD4-EEE3-5065DBFCFAA7</referredTableID>
+<keyObject>2FB518BB-C549-FC34-3D3E-053088FB3F64</keyObject>
+<referredKeyID>2FB518BB-C549-FC34-3D3E-053088FB3F64</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>put_id</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

@@ -1,0 +1,76 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="84B4ABBE-B652-95E3-CB69-5FF23970AEC7" name="PUT_VLAK">
+<createdBy>Antonio</createdBy>
+<createdTime>2023-07-17 09:15:47 UTC</createdTime>
+<ownerDesignName>dijagram</ownerDesignName>
+<ordsAlias>relation_11</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="VLAK_vlak_id" id="3927848F-4E74-B182-A78E-4EF3CADDC497">
+<createdBy>Antonio</createdBy>
+<createdTime>2023-07-17 09:15:47 UTC</createdTime>
+<ownerDesignName>dijagram</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="C1B48A29-9B7F-0F98-E688-1E961B196ABE" referredColumn="6038FAC4-42F6-574E-FD36-C47A97BB1456"/>
+</associations>
+</Column>
+<Column name="PUT_put_id" id="55EE22DC-4334-EF03-E4B2-449542E4DF50">
+<createdBy>Antonio</createdBy>
+<createdTime>2023-07-17 09:15:47 UTC</createdTime>
+<ownerDesignName>dijagram</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="07FB6FF3-732A-59F3-454F-D0BD6F0CFDCE" referredColumn="0DE30FB1-CE47-4D73-3C6D-2758F85CFE8D"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="453C46FC-E905-BA64-D6B8-7263B51FD886" name="Relation_11_PK">
+<createdBy>Antonio</createdBy>
+<createdTime>2023-07-17 09:15:47 UTC</createdTime>
+<ownerDesignName>dijagram</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="3927848F-4E74-B182-A78E-4EF3CADDC497"/>
+<colUsage columnID="55EE22DC-4334-EF03-E4B2-449542E4DF50"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="E37ED2A9-16D9-A8AF-622E-0D00C0A92B91" name="Relation_11_VLAK_FK">
+<createdBy>Antonio</createdBy>
+<createdTime>2023-07-17 09:15:47 UTC</createdTime>
+<generatorID>DA176638-F428-3548-45E7-78C975B4520D</generatorID>
+<ownerDesignName>dijagram</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="3927848F-4E74-B182-A78E-4EF3CADDC497"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="0B7E67A3-C780-89FE-33A6-4B52404DEDBD" name="Relation_11_PUT_FK">
+<createdBy>Antonio</createdBy>
+<createdTime>2023-07-17 09:15:47 UTC</createdTime>
+<generatorID>DA176638-F428-3548-45E7-78C975B4520D</generatorID>
+<ownerDesignName>dijagram</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="55EE22DC-4334-EF03-E4B2-449542E4DF50"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>
