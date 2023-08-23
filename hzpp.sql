@@ -91,7 +91,7 @@ CREATE TABLE zaposlenik (
     opis_posla          VARCHAR2(10) NOT NULL,
     tel                 NUMBER NOT NULL,
     pocetak_rada        DATE NOT NULL,
-    kraj_radnog_odnosa  DATE NOT NULL,
+    kraj_radnog_odnosa  DATE NULL,
     postaja_postaja_id  NUMBER NOT NULL
 );
 
@@ -270,6 +270,7 @@ INSERT INTO popust(popust_id, iznos, kartica_kartica_id) VALUES ('djeca', 0.5, 2
 INSERT INTO popust(popust_id, iznos, kartica_kartica_id) VALUES ('umirovljenik', 0.5, 19); 
 INSERT INTO popust(popust_id, iznos, kartica_kartica_id) VALUES ('invalid', 0.5, 16); 
 INSERT INTO popust(popust_id, iznos, kartica_kartica_id) VALUES ('mladi', 0.2, 4); 
+
 
 INSERT INTO postaja (postaja_id, naziv_mjesta) VALUES (1, 'Bedenica');
 INSERT INTO postaja (postaja_id, naziv_mjesta) VALUES (2, 'Bistra');
@@ -802,7 +803,7 @@ SET placa = 20000   --postavlja zaposleniku s id = 1 placu na 20000
 WHERE zaposlenik_id = 1;
 
 
-SELECT placa
+SELECT zaposlenik_id, placa
 FROM zaposlenik     --test query za prethodni update place
 WHERE zaposlenik_id = 1;
 
@@ -999,7 +1000,6 @@ WHERE vlak_id = 5;
 SELECT max_brzina, vlak_id
 FROM vlak                    --test query za prethodni update max_brzine
 WHERE max_brzina = 80;
-WHERE max_brzina = 80;
 
 
 
@@ -1016,7 +1016,7 @@ WHERE broj_perona = 5;
 
 --uvjeti
 
-
+--treba bacit error jer mehaničar nije u opisu posla
 ALTER TABLE zaposlenik ADD CONSTRAINT opis_posla_check 
 CHECK (opis_posla IN ('strojovoda', 'blagajnik', 'kondukter'));
 
@@ -1024,7 +1024,7 @@ INSERT INTO zaposlenik (zaposlenik_id, ime, prezime, adresa, dob, placa, opis_po
 VALUES (52, 'Mijo', 'Majić', 'Stipe Kruzica 23', 19, 7500, 'mehaničar', 988758403, TO_DATE('2022-01-01', 'YYYY-MM-DD'), TO_DATE('2023-12-31', 'YYYY-MM-DD'), 130);
 
 
-
+--treba bacit error jer niti jedan razred osim 1 i 2 ne mozemo insertati
 ALTER TABLE karta ADD CONSTRAINT razred_check
 CHECK (razred IN (1, 2));
 
@@ -1036,7 +1036,7 @@ VALUES (52, TO_TIMESTAMP('09:45:00', 'HH24:MI:SS'), 2, 3, TO_TIMESTAMP('09:45:00
 
 
 COMMENT ON TABLE karta IS 'This table stores data about tickets';
-COMMENT ON TABLE popust IS 'This table stores data about popust you can get with your card';
+COMMENT ON TABLE popust IS 'This table stores data about discount you can get with your card';
 COMMENT ON TABLE postaja IS 'This table stores data about stations';
 COMMENT ON TABLE zaposlenik IS 'This table stores data about every employee';
 COMMENT ON TABLE kupac IS 'This table stores data about every customer';
@@ -1054,9 +1054,9 @@ CREATE INDEX karta_kupac_kupac_id_idx ON karta (kupac_kupac_id);
 CREATE INDEX karta_put_put_id_idx ON karta (put_put_id);
 CREATE INDEX karta_vrijeme_polaska_idx ON karta (vrijeme_polaska);
 CREATE INDEX zaposlenik_placa_idx ON zaposlenik (placa);
-CREATE INDEX popust_iznos_idx ON popust (iznos);
+CREATE INDEX popust_iznos_idx ON popust (rezervacija_sjedala);
 CREATE BITMAP INDEX karta_razred_idx ON karta (razred);
-CREATE BITMAP INDEX karta_rezervacija_sjedala_idx ON karta (rezervacija_sjedala);
+CREATE BITMAP INDEX karta_rezervacija_sjedala_idx ON karta (iznos);
 
 
 -- procedure
@@ -1107,77 +1107,148 @@ SELECT * FROM karta;
 
 
 
-CREATE OR REPLACE PROCEDURE update_kartica_with_kupac (
-    new_kupac_id IN kupac.kupac_id%TYPE,
-    kartica_id_to_update IN kartica.kartica_id%TYPE
-) AS
-BEGIN
-   UPDATE kartica
-   SET kupac_kupac_id = new_kupac_id
-   WHERE kartica_id = kartica_id_to_update;
 
-   COMMIT;
+CREATE OR REPLACE PROCEDURE update_discount (
+    p_discount_id IN popust.popust_id%TYPE,
+    p_new_amount IN popust.iznos%TYPE
+)
+AS
+BEGIN
+    UPDATE popust
+    SET iznos = p_new_amount
+    WHERE popust_id = p_discount_id;
+    COMMIT;
 END;
 /
 
-SELECT * FROM kartica;     --ispis svega sto se nalazi unutar tablice kartica prije updatea tj. poziva fje
+SELECT * FROM popust;     --vadimo podatke koji su u tablici popust od prvih inserta gdje jos nismo pozvali proceduru
 
-INSERT INTO kupac (kupac_id, ime, prezime) VALUES (101,'Dario','Ivanković');
-INSERT INTO kartica (kartica_id, kupac_kupac_id, kategorija) VALUES (21, 21, 'student');
+CALL update_discount('djeca', 0.6);
+CALL update_discount('ucenik', 0.4);
+
+SELECT * FROM popust;    --provjeravamo jesmo li nakon poziva procedure updateali popuste s id-jem djeca i ucenik
 
 
-CALL update_kartica_with_kupac(101, 21);
 
-SELECT * FROM kartica;      -- provjera nalazi li se kupac s id 101 u tablici kartica
+/*CREATE OR REPLACE PROCEDURE assign_card_category (
+    p_kupac_id IN kupac.kupac_id%TYPE,
+    p_categ_id IN kartica.kartica_id%TYPE
+)
+AS
+BEGIN
+    UPDATE kartica
+    SET kupac_kupac_id = p_kupac_id
+    WHERE kartica_id = p_categ_id;
+    COMMIT;
+END;
+/
+
+INSERT INTO kupac (kupac_id, ime, prezime) VALUES (101, 'Željko', 'Marić');
+INSERT INTO kupac (kupac_id, ime, prezime) VALUES (102, 'Ivan', 'Petrić');
+
+
+INSERT INTO kartica (kartica_id, kupac_kupac_id, kategorija) VALUES (21, 101, 'Gold');
+INSERT INTO kartica (kartica_id, kupac_kupac_id, kategorija) VALUES (22, 102, 'Silver');
+
+SELECT k.KUPAC_ID, ka.KARTICA_ID, k.IME, k.PREZIME, ka.KATEGORIJA           --test query
+FROM KUPAC k
+JOIN KARTICA ka ON k.KUPAC_ID = ka.KUPAC_KUPAC_ID;
+
+
+CALL assign_card_category(101, 21); -- zovemo proceduru da assignamo Gold kategoriju kupcu s id 101
+CALL assign_card_category(102, 22);   ---- zovemo proceduru da assignamo Silver kategoriju kupcu s id 101
+
+
+SELECT k.KUPAC_ID, ka.KARTICA_ID, k.IME, k.PREZIME, ka.KATEGORIJA           --test query
+FROM KUPAC k
+JOIN KARTICA ka ON k.KUPAC_ID = ka.KUPAC_KUPAC_ID;*/
 
 
 
 -- okidači
 
 
-CREATE OR REPLACE TRIGGER karta_vrijeme_polaska_trg
-BEFORE INSERT ON karta
+--preventa brisanje zaposlenika iz baze ako je on jos zaposlen
+CREATE OR REPLACE TRIGGER prevent_zaposlenik_delete
+BEFORE DELETE ON zaposlenik
 FOR EACH ROW
 BEGIN
-SELECT SYSDATE INTO :NEW.vrijeme_polaska FROM dual;
+    IF :OLD.kraj_radnog_odnosa IS NULL THEN
+        RAISE_APPLICATION_ERROR(-20001, 'Cannot delete this employee, he is still employed.');
+    END IF;
 END;
+/
 
---test
+INSERT INTO zaposlenik (zaposlenik_id, ime, prezime, adresa, dob, placa, opis_posla, tel, pocetak_rada, kraj_radnog_odnosa, postaja_postaja_id)
+VALUES (90, 'Andrija', 'Mijić', 'Petra Kruzica 24', 28, 10000, 'kondukter', 555666777, TO_DATE('2022-01-01', 'YYYY-MM-DD'), NULL, 50);
 
-INSERT INTO karta (karta_id, vrijeme_kupnje, rezervacija_sjedala, razred, vrijeme_polaska, datum_polaska, kupac_kupac_id, put_put_id)
-VALUES (51, TO_TIMESTAMP('08:30:00', 'HH24:MI:SS'), 1, 1, TO_TIMESTAMP('10:00:00', 'HH24:MI:SS'), TO_DATE('2023-07-19', 'YYYY-MM-DD'), 73, 12);
+DELETE 
+FROM zaposlenik 
+WHERE zaposlenik_id = 90;
 
 
-CREATE OR REPLACE TRIGGER karta_vrijeme_kupnje_trg
-BEFORE INSERT ON karta
+
+--drugi trigger
+CREATE OR REPLACE TRIGGER calculate_discount_amount
+BEFORE INSERT OR UPDATE ON popust
 FOR EACH ROW
+DECLARE
+    v_kategorija VARCHAR2(15); 
 BEGIN
-SELECT SYSDATE INTO :NEW.vrijeme_kupnje FROM dual;
+    IF :new.kartica_kartica_id IS NOT NULL THEN
+        SELECT k.kategorija INTO v_kategorija
+        FROM kartica k
+        WHERE k.kartica_id = :new.kartica_kartica_id;
+
+        IF v_kategorija = 'Gold' THEN
+            :new.iznos := :new.iznos * 0.9; 
+        ELSIF v_kategorija = 'Silver' THEN
+            :new.iznos := :new.iznos * 0.95; 
+        END IF;
+    END IF;
 END;
-
---test
-
-INSERT INTO karta (karta_id, vrijeme_kupnje, rezervacija_sjedala, razred, vrijeme_polaska, datum_polaska, kupac_kupac_id, put_put_id)
-VALUES (52, TO_TIMESTAMP('09:45:00', 'HH24:MI:SS'), 0, 2, TO_TIMESTAMP('09:45:00', 'HH24:MI:SS'), TO_DATE('2023-09-06', 'YYYY-MM-DD'), 84, 22);
+/
 
 
-CREATE OR REPLACE TRIGGER karta_rezervacija_sjedala_trg
-BEFORE INSERT ON karta
+INSERT INTO popust(popust_id, iznos, kartica_kartica_id) VALUES ('student', 0.2, 2); 
+
+
+UPDATE popust 
+SET iznos = 0.8
+WHERE popust_id = 'student';
+
+
+SELECT * 
+FROM popust
+WHERE popust_id = 'student';
+
+
+
+--treci trigger
+CREATE OR REPLACE TRIGGER prevent_put_delete
+BEFORE DELETE ON put
 FOR EACH ROW
+DECLARE
+    v_count NUMBER;
 BEGIN
-IF :NEW.rezervacija_sjedala = 0 THEN
-:NEW.rezervacija_sjedala := 1;
-ELSE
-:NEW.rezervacija_sjedala := 0;
-END IF;
-END;
+    SELECT COUNT(*) INTO v_count
+    FROM karta
+    WHERE put_put_id = :OLD.put_id;
 
---test
+    IF v_count > 0 THEN
+        RAISE_APPLICATION_ERROR(-20002, 'Cannot delete this route, there are associated tickets.');
+    END IF;
+END;
+/
+
+
+INSERT INTO put (put_id, trajanje, polaziste, odrediste) VALUES (35, INTERVAL '3 3:45:00' DAY TO SECOND, 'Zadar', 'Rijeka');
 
 INSERT INTO karta (karta_id, vrijeme_kupnje, rezervacija_sjedala, razred, vrijeme_polaska, datum_polaska, kupac_kupac_id, put_put_id)
-VALUES (53, TO_TIMESTAMP('08:30:00', 'HH24:MI:SS'), 0, 1, TO_TIMESTAMP('10:00:00', 'HH24:MI:SS'), TO_DATE('2023-07-19', 'YYYY-MM-DD'), 73, 12);
+VALUES (58, TO_TIMESTAMP('09:45:00', 'HH24:MI:SS'), 0, 2, TO_TIMESTAMP('09:45:00', 'HH24:MI:SS'), TO_DATE('2023-09-06', 'YYYY-MM-DD'), 51, 35);
 
-
+DELETE FROM put
+WHERE put_id = 35;
 
 
 
