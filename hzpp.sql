@@ -749,10 +749,10 @@ VALUES (50, TO_TIMESTAMP('09:45:00', 'HH24:MI:SS'), 0, 2, TO_TIMESTAMP('09:45:00
 
 
 INSERT INTO zaposlenik_vlak (zaposlenik_zaposlenik_id, vlak_vlak_id) VALUES (40, 8);
-INSERT INTO zaposlenik_vlak (zaposlenik_zaposlenik_id, vlak_vlak_id) VALUES (29, 103);
+INSERT INTO zaposlenik_vlak (zaposlenik_zaposlenik_id, vlak_vlak_id) VALUES (40, 103);
 INSERT INTO zaposlenik_vlak (zaposlenik_zaposlenik_id, vlak_vlak_id) VALUES (23, 88);
 INSERT INTO zaposlenik_vlak (zaposlenik_zaposlenik_id, vlak_vlak_id) VALUES (38, 96);
-INSERT INTO zaposlenik_vlak (zaposlenik_zaposlenik_id, vlak_vlak_id) VALUES (45, 17);
+INSERT INTO zaposlenik_vlak (zaposlenik_zaposlenik_id, vlak_vlak_id) VALUES (38, 17);
 INSERT INTO zaposlenik_vlak (zaposlenik_zaposlenik_id, vlak_vlak_id) VALUES (46, 78);
 INSERT INTO zaposlenik_vlak (zaposlenik_zaposlenik_id, vlak_vlak_id) VALUES (2, 64);
 
@@ -812,10 +812,11 @@ WHERE zaposlenik_id = 1;
 
 
 -- uzimamo ime, prezime zaposlenika i na kojem vlaku se nalaze, id vlaka i tip
-SELECT ime, prezime, vlak_id, tip
+-- ima 7 outputa jer ima samo 7 zaposlenika na vlakovima u insertima
+SELECT DISTINCT ime, prezime, vlak_id, tip
 FROM zaposlenik 
-LEFT JOIN zaposlenik_vlak ON zaposlenik_id = zaposlenik_id
-LEFT JOIN vlak ON vlak_id = vlak_id;
+JOIN zaposlenik_vlak ON zaposlenik.zaposlenik_id = zaposlenik_vlak.zaposlenik_zaposlenik_id
+JOIN vlak ON zaposlenik_vlak.vlak_vlak_id = vlak.vlak_id;
 
 
 --dohvacamo id kartice, kategoriju u koju spada kupac i iznos popusta koji svaki od kupaca ima
@@ -843,30 +844,24 @@ LEFT JOIN kartica ON kupac.kupac_id = kartica.kartica_id;
 
 
 --dohvacamo id karte i id puta na odredenim relacijama
-SELECT karta_id, put_id, polaziste, odrediste
+SELECT karta_id, trajanje, polaziste, odrediste
 FROM karta
 INNER JOIN put ON karta.karta_id = put.put_id;
 
 
 --uzimamo puteve s pridruzenim vlakovima na putovanjima
-SELECT put_id, trajanje, polaziste, odrediste, vlak_id, tip
+SELECT DISTINCT put_id, trajanje, polaziste, odrediste, vlak_id, tip
 FROM put
-LEFT JOIN put_vlak ON put_id = put_id
-LEFT JOIN vlak ON vlak_id = put_id;
-
-
---uzimamo vlakove s njihovim putovanjima
-SELECT vlak_id, tip, put_id, trajanje, polaziste, odrediste
-FROM vlak
-LEFT JOIN put_vlak ON vlak_id = vlak_id
-LEFT JOIN put ON put_id = put_id;
+JOIN put_vlak ON put_id = put_id
+JOIN vlak ON vlak_id = put_id;
 
 
 --dohvacamo popuste s pridruzenim karticama i podacima kupca(ime, prezime)
 SELECT iznos, kartica_id, kategorija, ime, prezime
 FROM popust 
-LEFT JOIN kartica ON popust.kartica_kartica_id = kartica.kartica_id
-LEFT JOIN kupac ON kartica.kupac_kupac_id = kupac.kupac_id;
+JOIN kartica ON popust.kartica_kartica_id = kartica.kartica_id
+JOIN kupac ON kartica.kupac_kupac_id = kupac.kupac_id
+ORDER BY iznos DESC;
 
 
 --isti kao prethodni query ali je profiltriran da gleda samo di je iznos popusta 0.5
@@ -879,7 +874,7 @@ ORDER BY iznos;
 
 
 --dohvacamo podatke o karti i kupcu koji je kupio kartu
-SELECT karta_id, vrijeme_kupnje, razred, vrijeme_polaska, datum_polaska,
+SELECT DISTINCT karta_id, vrijeme_kupnje, razred, vrijeme_polaska, datum_polaska,
        ime, prezime
 FROM karta
 INNER JOIN kupac ON karta.kupac_kupac_id = kupac.kupac_id;
@@ -909,23 +904,22 @@ FROM zaposlenik
 GROUP BY zaposlenik_id;
 
 
-SELECT zaposlenik_id, MEDIAN(placa)
+--trazimo medijan place za svaki opis posla
+SELECT opis_posla, MEDIAN(placa)
 FROM zaposlenik
-GROUP BY zaposlenik_id
-ORDER BY zaposlenik_id;
+GROUP BY opis_posla;
 
 
 SELECT zaposlenik_id, prezime, placa,
-       RANK() OVER (PARTITION BY zaposlenik_id ORDER BY placa) RANK
-  FROM zaposlenik WHERE zaposlenik_id = 5
-  ORDER BY RANK, prezime;
+       RANK() OVER (ORDER BY placa) RANK
+  FROM zaposlenik; 
 
 
 -- settanje default vrijednosti u razlicite tablice za razlicite atribute
 
 
 ALTER TABLE karta 
-MODIFY razred DEFAULT 1;
+MODIFY razred DEFAULT 2;
 
 
 ALTER TABLE vlak 
@@ -937,7 +931,7 @@ MODIFY broj_vagona DEFAULT 5;
 
 
 ALTER TABLE zaposlenik
-MODIFY placa DEFAULT 5000;
+MODIFY placa DEFAULT 3500;
 
 
 ALTER TABLE vlak
@@ -949,31 +943,74 @@ MODIFY tip DEFAULT 'putnicki';
 
 SELECT ime, prezime, placa, pocetak_rada, postaja_postaja_id
 FROM zaposlenik 
-WHERE placa = (SELECT MAX(placa) FROM zaposlenik);                               
-
-
-SELECT ime, prezime, placa, pocetak_rada, postaja_postaja_id 
-FROM zaposlenik 
-WHERE placa = (SELECT MIN(placa) FROM zaposlenik);
-
-
-SELECT COUNT(*) 
-FROM karta 
-WHERE razred = 1 AND kupac_kupac_id IN 
-(SELECT kupac_id FROM kupac WHERE kupac_id IN (SELECT kupac_kupac_id FROM kartica WHERE kategorija = 'umirovljenik')); 
+    WHERE placa = (SELECT MAX(placa) 
+    FROM zaposlenik) 
+    OR placa = (SELECT MIN(placa) 
+    FROM zaposlenik
+);                               
 
 
 SELECT COUNT(*) 
 FROM karta 
-WHERE razred = 2 AND kupac_kupac_id IN 
-(SELECT kupac_id FROM kupac WHERE kupac_id IN (SELECT kupac_kupac_id FROM kartica WHERE kategorija = 'student'));
+WHERE razred = 2 
+    AND kupac_kupac_id 
+    IN (SELECT kupac_id 
+    FROM kupac 
+    WHERE kupac_id 
+    IN (SELECT kupac_kupac_id 
+    FROM kartica 
+    WHERE kategorija = 'student')
+);
 
 
 SELECT COUNT(*) 
 FROM karta 
-WHERE kupac_kupac_id IN 
-(SELECT kupac_id FROM kupac WHERE kupac_id IN (SELECT kupac_kupac_id FROM kartica WHERE kategorija = 'student')) 
-AND put_put_id IN (SELECT put_id FROM put WHERE polaziste = 'Zagreb' AND odrediste = 'Split');
+WHERE kupac_kupac_id 
+    IN (SELECT kupac_id 
+    FROM kupac 
+    WHERE kupac_id 
+    IN (SELECT kupac_kupac_id 
+    FROM kartica 
+    WHERE kategorija = 'student')) 
+    AND put_put_id 
+    IN (SELECT put_id 
+    FROM put 
+    WHERE polaziste = 'Zagreb' 
+    AND odrediste = 'Split'
+);
+
+
+--trazimo ime i prezime kupca koji je kupio kartu s popustom
+SELECT ime, prezime
+FROM kupac
+WHERE kupac_id IN (
+    SELECT DISTINCT k.kupac_kupac_id
+    FROM karta k
+    JOIN popust p ON k.karta_id = p.kartica_kartica_id
+);
+
+
+
+--trazimo ukupan broj mjesta rezerviranih u svakom razredu za određeno putovanje
+SELECT razred, COUNT(*) AS broj_rezervacija
+FROM karta
+WHERE put_put_id = (
+    SELECT put_id
+    FROM put
+    WHERE polaziste = 'Zagreb' AND odrediste = 'Split'
+)
+GROUP BY razred;
+
+
+--trazimo ime i prezime zaposlenika koji radi na vise vlakova
+SELECT ime, prezime
+FROM zaposlenik
+WHERE zaposlenik_id IN (
+    SELECT zv.zaposlenik_zaposlenik_id
+    FROM zaposlenik_vlak zv
+    GROUP BY zv.zaposlenik_zaposlenik_id
+    HAVING COUNT(*) > 1
+);
 
 
 --dodani novi atributi u razlicite tablice
@@ -1054,9 +1091,9 @@ CREATE INDEX karta_kupac_kupac_id_idx ON karta (kupac_kupac_id);
 CREATE INDEX karta_put_put_id_idx ON karta (put_put_id);
 CREATE INDEX karta_vrijeme_polaska_idx ON karta (vrijeme_polaska);
 CREATE INDEX zaposlenik_placa_idx ON zaposlenik (placa);
-CREATE INDEX popust_iznos_idx ON popust (rezervacija_sjedala);
+CREATE INDEX popust_iznos_idx ON popust (iznos);
 CREATE BITMAP INDEX karta_razred_idx ON karta (razred);
-CREATE BITMAP INDEX karta_rezervacija_sjedala_idx ON karta (iznos);
+CREATE BITMAP INDEX karta_rezervacija_sjedala_idx ON karta (rezervacija_sjedala);
 
 
 -- procedure
@@ -1114,10 +1151,14 @@ CREATE OR REPLACE PROCEDURE update_discount (
 )
 AS
 BEGIN
-    UPDATE popust
-    SET iznos = p_new_amount
-    WHERE popust_id = p_discount_id;
-    COMMIT;
+    IF p_new_amount > 0 AND p_new_amount < 1 THEN
+        UPDATE popust
+        SET iznos = p_new_amount
+        WHERE popust_id = p_discount_id;
+        COMMIT;
+    ELSE 
+        RAISE_APPLICATION_ERROR(-20022, 'Wrong discount amount!'); 
+    END IF;
 END;
 /
 
@@ -1125,6 +1166,7 @@ SELECT * FROM popust;     --vadimo podatke koji su u tablici popust od prvih ins
 
 CALL update_discount('djeca', 0.6);
 CALL update_discount('ucenik', 0.4);
+CALL update_discount('djeca', 2);
 
 SELECT * FROM popust;    --provjeravamo jesmo li nakon poziva procedure updateali popuste s id-jem djeca i ucenik
 
@@ -1189,38 +1231,25 @@ WHERE zaposlenik_id = 90;
 
 
 --drugi trigger
-CREATE OR REPLACE TRIGGER calculate_discount_amount
-BEFORE INSERT OR UPDATE ON popust
+CREATE OR REPLACE TRIGGER prevent_ticket_purchase_after_departure
+BEFORE INSERT ON karta
 FOR EACH ROW
 DECLARE
-    v_kategorija VARCHAR2(15); 
+    departure_time TIMESTAMP; 
 BEGIN
-    IF :new.kartica_kartica_id IS NOT NULL THEN
-        SELECT k.kategorija INTO v_kategorija
-        FROM kartica k
-        WHERE k.kartica_id = :new.kartica_kartica_id;
+    -- trazimo vrijeme polaska za putovanje povezano s kartom
+    SELECT k.vrijeme_polaska
+    INTO departure_time
+    FROM put p
+    JOIN karta k ON p.put_id = k.put_put_id
+    WHERE k.karta_id = :NEW.karta_id;
 
-        IF v_kategorija = 'Gold' THEN
-            :new.iznos := :new.iznos * 0.9; 
-        ELSIF v_kategorija = 'Silver' THEN
-            :new.iznos := :new.iznos * 0.95; 
-        END IF;
+    -- provjera je li karta kupljena poslije polaska vlaka
+    IF :NEW.vrijeme_kupnje > departure_time THEN
+        RAISE_APPLICATION_ERROR(-20003, 'Ticket cannot be purchased after the journey has started');
     END IF;
 END;
 /
-
-
-INSERT INTO popust(popust_id, iznos, kartica_kartica_id) VALUES ('student', 0.2, 2); 
-
-
-UPDATE popust 
-SET iznos = 0.8
-WHERE popust_id = 'student';
-
-
-SELECT * 
-FROM popust
-WHERE popust_id = 'student';
 
 
 
