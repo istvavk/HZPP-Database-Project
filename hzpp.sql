@@ -745,7 +745,7 @@ VALUES (48, TO_TIMESTAMP('17:15:00', 'HH24:MI:SS'), 0, 2, TO_TIMESTAMP('17:15:00
 INSERT INTO karta (karta_id, vrijeme_kupnje, rezervacija_sjedala, razred, vrijeme_polaska, datum_polaska, kupac_kupac_id, put_put_id)
 VALUES (49, TO_TIMESTAMP('12:30:00', 'HH24:MI:SS'), 1, 1, TO_TIMESTAMP('12:30:00', 'HH24:MI:SS'), TO_DATE('2023-09-05', 'YYYY-MM-DD'), 50, 10);
 INSERT INTO karta (karta_id, vrijeme_kupnje, rezervacija_sjedala, razred, vrijeme_polaska, datum_polaska, kupac_kupac_id, put_put_id)
-VALUES (50, TO_TIMESTAMP('09:45:00', 'HH24:MI:SS'), 0, 2, TO_TIMESTAMP('09:45:00', 'HH24:MI:SS'), TO_DATE('2023-09-06', 'YYYY-MM-DD'), 51, 1);
+VALUES (50, TO_TIMESTAMP('09:50:00', 'HH24:MI:SS'), 0, 2, TO_TIMESTAMP('09:45:00', 'HH24:MI:SS'), TO_DATE('2023-09-06', 'YYYY-MM-DD'), 51, 1);
 
 
 INSERT INTO zaposlenik_vlak (zaposlenik_zaposlenik_id, vlak_vlak_id) VALUES (40, 8);
@@ -910,9 +910,11 @@ FROM zaposlenik
 GROUP BY opis_posla;
 
 
+--rangiram zaposlenike po placi
 SELECT zaposlenik_id, prezime, placa,
-       RANK() OVER (ORDER BY placa) RANK
+       RANK() OVER (ORDER BY placa DESC) RANK
   FROM zaposlenik; 
+
 
 
 -- settanje default vrijednosti u razlicite tablice za razlicite atribute
@@ -936,6 +938,7 @@ MODIFY placa DEFAULT 3500;
 
 ALTER TABLE vlak
 MODIFY tip DEFAULT 'putnicki';
+
 
 
 --subquerys, nested querys etc
@@ -1013,6 +1016,8 @@ WHERE zaposlenik_id IN (
 );
 
 
+
+
 --dodani novi atributi u razlicite tablice
 
 
@@ -1051,7 +1056,9 @@ FROM postaja                    --test query za prethodni update broja perona
 WHERE broj_perona = 5;
 
 
+
 --uvjeti
+
 
 --treba bacit error jer mehaničar nije u opisu posla
 ALTER TABLE zaposlenik ADD CONSTRAINT opis_posla_check 
@@ -1069,6 +1076,7 @@ INSERT INTO karta (karta_id, vrijeme_kupnje, rezervacija_sjedala, razred, vrijem
 VALUES (52, TO_TIMESTAMP('09:45:00', 'HH24:MI:SS'), 2, 3, TO_TIMESTAMP('09:45:00', 'HH24:MI:SS'), TO_DATE('2023-09-06', 'YYYY-MM-DD'), 100, 29);
 
 
+
 --dodani komentari
 
 
@@ -1084,6 +1092,7 @@ FROM all_tab_comments
 WHERE table_name IN ('KARTA', 'POPUST', 'POSTAJA', 'ZAPOSLENIK', 'KUPAC');
 
 
+
 -- indexi
 
 
@@ -1092,13 +1101,18 @@ CREATE INDEX karta_put_put_id_idx ON karta (put_put_id);
 CREATE INDEX karta_vrijeme_polaska_idx ON karta (vrijeme_polaska);
 CREATE INDEX zaposlenik_placa_idx ON zaposlenik (placa);
 CREATE INDEX popust_iznos_idx ON popust (iznos);
+
+--bitmap koristim gdje imam manje podataka, npr razred samo prvi i drugi, rezervacija sjedala samo 0 i 1
 CREATE BITMAP INDEX karta_razred_idx ON karta (razred);
 CREATE BITMAP INDEX karta_rezervacija_sjedala_idx ON karta (rezervacija_sjedala);
+
+
 
 
 -- procedure
 
 
+--prva procedura
 CREATE OR REPLACE PROCEDURE remove_zap (zaposlenik_id_to_delete NUMBER) AS
 BEGIN
    DELETE FROM zaposlenik_vlak
@@ -1121,30 +1135,74 @@ CALL remove_zap(51);
 SELECT * FROM zaposlenik;
 
 
-
-
+--druga procedura
 CREATE OR REPLACE PROCEDURE delete_ticket (karta_id NUMBER) AS 
+   trip_count NUMBER;
 BEGIN
-   DELETE FROM karta
-   WHERE karta_id = delete_ticket.karta_id; 
+   -- provjeravamo postoji li karta
+   SELECT COUNT(*)
+   INTO trip_count
+   FROM karta
+   WHERE karta_id = delete_ticket.karta_id;
 
-   COMMIT;
+   IF trip_count = 0 THEN
+      -- bacamo error ako nema karte
+      RAISE_APPLICATION_ERROR(-20002, 'Ticket not found!');
+   ELSE
+      -- provjeravamo je li karta na putovanju
+      SELECT COUNT(*)
+      INTO trip_count
+      FROM put_vlak pv
+      JOIN karta k ON pv.put_put_id = k.put_put_id
+      WHERE k.karta_id = delete_ticket.karta_id;
+
+      IF trip_count > 0 THEN
+         -- bacamo error ako je karta trenutno na putovanju
+         RAISE_APPLICATION_ERROR(-20001, 'Cannot delete ticket. Ticket is currently on a trip!');
+      ELSE
+         -- brisemo kartu ako nije na putovanju
+         DELETE FROM karta
+         WHERE karta_id = delete_ticket.karta_id;
+
+         COMMIT;
+      END IF;
+   END IF;
+EXCEPTION
+   WHEN OTHERS THEN
+      --handlamo ostale error-e
+      RAISE_APPLICATION_ERROR(-20003, 'An error occurred: ' || SQLERRM);
 END;
 /
 
-
+--test case za delete karte ako nije pridruzena putovanju
+INSERT INTO kupac (kupac_id, ime, prezime) VALUES (102, 'Duje', 'Modric');
+INSERT INTO put (put_id, trajanje, polaziste, odrediste) VALUES (32, INTERVAL '3 3:45:00' DAY TO SECOND, 'Zadar', 'Rijeka');
 INSERT INTO karta (karta_id, vrijeme_kupnje, rezervacija_sjedala, razred, vrijeme_polaska, datum_polaska, kupac_kupac_id, put_put_id)
-VALUES (51, TO_TIMESTAMP('09:45:00', 'HH24:MI:SS'), 2, 2, TO_TIMESTAMP('09:45:00', 'HH24:MI:SS'), TO_DATE('2023-09-06', 'YYYY-MM-DD'), 54, 1);
+VALUES (51, TO_TIMESTAMP('09:45:00', 'HH24:MI:SS'), 2, 2, TO_TIMESTAMP('09:45:00', 'HH24:MI:SS'), TO_DATE('2023-09-06', 'YYYY-MM-DD'), 102, 32);
 
-SELECT * FROM karta;      -- provjera nalazi li se karta s 52 id u tablici karta
+SELECT * FROM karta;
 
 CALL delete_ticket(51);
 
 SELECT * FROM karta;
 
+--test case da baci error ako je karta pridruzena putovanju
+INSERT INTO kupac (kupac_id, ime, prezime) VALUES (102,'Duje','Modric');
+INSERT INTO put (put_id, trajanje, polaziste, odrediste) VALUES (32, INTERVAL '3 3:45:00' DAY TO SECOND, 'Zadar', 'Rijeka');
+INSERT INTO karta (karta_id, vrijeme_kupnje, rezervacija_sjedala, razred, vrijeme_polaska, datum_polaska, kupac_kupac_id, put_put_id)
+VALUES (51, TO_TIMESTAMP('09:45:00', 'HH24:MI:SS'), 2, 2, TO_TIMESTAMP('09:45:00', 'HH24:MI:SS'), TO_DATE('2023-09-06', 'YYYY-MM-DD'), 54, 1);
+
+CALL delete_ticket(51);
+
+--test case da baci error 'Ticket not found!'
+INSERT INTO kupac (kupac_id, ime, prezime) VALUES (102,'Duje','Modric');
+INSERT INTO put (put_id, trajanje, polaziste, odrediste) VALUES (32, INTERVAL '3 3:45:00' DAY TO SECOND, 'Zadar', 'Rijeka');
+
+CALL delete_ticket(51);
 
 
 
+--treca procedura
 CREATE OR REPLACE PROCEDURE update_discount (
     p_discount_id IN popust.popust_id%TYPE,
     p_new_amount IN popust.iznos%TYPE
@@ -1166,50 +1224,18 @@ SELECT * FROM popust;     --vadimo podatke koji su u tablici popust od prvih ins
 
 CALL update_discount('djeca', 0.6);
 CALL update_discount('ucenik', 0.4);
-CALL update_discount('djeca', 2);
 
 SELECT * FROM popust;    --provjeravamo jesmo li nakon poziva procedure updateali popuste s id-jem djeca i ucenik
 
-
-
-/*CREATE OR REPLACE PROCEDURE assign_card_category (
-    p_kupac_id IN kupac.kupac_id%TYPE,
-    p_categ_id IN kartica.kartica_id%TYPE
-)
-AS
-BEGIN
-    UPDATE kartica
-    SET kupac_kupac_id = p_kupac_id
-    WHERE kartica_id = p_categ_id;
-    COMMIT;
-END;
-/
-
-INSERT INTO kupac (kupac_id, ime, prezime) VALUES (101, 'Željko', 'Marić');
-INSERT INTO kupac (kupac_id, ime, prezime) VALUES (102, 'Ivan', 'Petrić');
-
-
-INSERT INTO kartica (kartica_id, kupac_kupac_id, kategorija) VALUES (21, 101, 'Gold');
-INSERT INTO kartica (kartica_id, kupac_kupac_id, kategorija) VALUES (22, 102, 'Silver');
-
-SELECT k.KUPAC_ID, ka.KARTICA_ID, k.IME, k.PREZIME, ka.KATEGORIJA           --test query
-FROM KUPAC k
-JOIN KARTICA ka ON k.KUPAC_ID = ka.KUPAC_KUPAC_ID;
-
-
-CALL assign_card_category(101, 21); -- zovemo proceduru da assignamo Gold kategoriju kupcu s id 101
-CALL assign_card_category(102, 22);   ---- zovemo proceduru da assignamo Silver kategoriju kupcu s id 101
-
-
-SELECT k.KUPAC_ID, ka.KARTICA_ID, k.IME, k.PREZIME, ka.KATEGORIJA           --test query
-FROM KUPAC k
-JOIN KARTICA ka ON k.KUPAC_ID = ka.KUPAC_KUPAC_ID;*/
+--bacit ce error na ovaj poziv jer je iznos popusta veci od 1
+CALL update_discount('djeca', 2);
 
 
 
--- okidači
 
+-- triggeri
 
+--prvi trigger
 --preventa brisanje zaposlenika iz baze ako je on jos zaposlen
 CREATE OR REPLACE TRIGGER prevent_zaposlenik_delete
 BEFORE DELETE ON zaposlenik
@@ -1229,31 +1255,8 @@ FROM zaposlenik
 WHERE zaposlenik_id = 90;
 
 
-
 --drugi trigger
-CREATE OR REPLACE TRIGGER prevent_ticket_purchase_after_departure
-BEFORE INSERT ON karta
-FOR EACH ROW
-DECLARE
-    departure_time TIMESTAMP; 
-BEGIN
-    -- trazimo vrijeme polaska za putovanje povezano s kartom
-    SELECT k.vrijeme_polaska
-    INTO departure_time
-    FROM put p
-    JOIN karta k ON p.put_id = k.put_put_id
-    WHERE k.karta_id = :NEW.karta_id;
-
-    -- provjera je li karta kupljena poslije polaska vlaka
-    IF :NEW.vrijeme_kupnje > departure_time THEN
-        RAISE_APPLICATION_ERROR(-20003, 'Ticket cannot be purchased after the journey has started');
-    END IF;
-END;
-/
-
-
-
---treci trigger
+--triggerat ce se ako pokusamo obrisati put koji ima pridruzenih karata, odnosno ako su karte jos u opticaju za odredeni put
 CREATE OR REPLACE TRIGGER prevent_put_delete
 BEFORE DELETE ON put
 FOR EACH ROW
