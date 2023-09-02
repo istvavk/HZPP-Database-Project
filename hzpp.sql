@@ -941,7 +941,7 @@ MODIFY tip DEFAULT 'putnicki';
 
 
 
---subquerys, nested querys etc
+--subqueries etc
 
 
 SELECT ime, prezime, placa, pocetak_rada, postaja_postaja_id
